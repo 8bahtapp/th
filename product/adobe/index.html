@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Adobe - 8Baht Tools</title>
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/favicon.png">
+    
+    <!-- Single CSS import - style.css contains EVERYTHING (main + product styles) -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+
+    <!-- Header (same as main page) -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="header-left">
+                <button class="mobile-menu-btn" id="mobile-toggle">
+                    <span></span><span></span><span></span>
+                </button>
+
+                <a href="https://8bahtapp.github.io/tools/" class="logo-wrapper">
+                    <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/icon-8baht.png" alt="8Baht" class="logo">
+                </a>
+
+                <nav class="desktop-menu" id="main-nav">
+                    <a href="../../">Home</a>
+                    <a href="../../product/adobe/">Adobe</a>
+                    <a href="../../product/autodesk/">Autodesk</a>
+                    <a href="../../product/sketchup/">SketchUp</a>
+                    <a href="../../product/rhino/">Rhino</a>
+                    <a href="../../product/bimbundle/">BIM Bundle</a>
+                    <a href="../../product/corona/">Corona</a>
+                    <a href="../../product/enscape/">Enscape</a>
+                    <a href="../../product/vray/">V-Ray</a>
+                    <a href="../../product/d5/">D5</a>
+                    <a href="../../product/lumion/">Lumion</a>
+                    <a href="../../product/foxit/">Foxit</a>
+                    <a href="../../product/pdfelement/">PDFelement</a>
+                    <a href="../../product/microsoft/">Microsoft</a>
+                    <a href="../../product/gstarcad/">GstarCAD</a>
+                    <a href="../../product/other/">อื่นๆ</a>
+                </nav>
+            </div>
+
+            <div class="header-right">
+                <button class="search-btn">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+                <a href="https://8baht.com/help" class="btn-ticket" target="_blank">Open Ticket</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="menu-overlay" id="menu-overlay"></div>
+
+    <!-- Main Product Content -->
+    <main class="product-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="product-sidebar">
+            <a href="../../" class="back-link">← Back</a>
+            
+            <nav class="sticky-nav">
+                <span class="nav-label">Navigation</span>
+                <a href="#overview" class="nav-item active">Overview</a>
+                <a href="#products" class="nav-item">Products</a>
+                <a href="#downloads" class="nav-item">Downloads</a>
+                <a href="#faq" class="nav-item">FAQ</a>
+            </nav>
+        </aside>
+
+        <!-- Product Content -->
+        <div class="product-content">
+            <!-- Overview Section -->
+            <section id="overview">
+                <h2 class="section-title">Adobe Creative Cloud</h2>
+                <p>Adobe Creative Cloud is a collection of applications and services for graphic design, video editing, web development, and more.</p>
+            </section>
+
+            <!-- Products Section -->
+            <section id="products">
+                <h2 class="section-title">Featured Products</h2>
+                
+                <div class="card-grid">
+                    <div class="product-card">
+                        <div class="product-link-wrapper">
+                            <div class="icon-placeholder">🎨</div>
+                            <div class="info">
+                                <h3>Photoshop</h3>
+                                <p>Professional image editing</p>
+                            </div>
+                        </div>
+                        <div class="card-bottom">
+                            <span class="sub-text">Image Editor</span>
+                            <button class="btn-copy" data-url="https://adobe.com/products/photoshop" onclick="addToBasket('Adobe Photoshop', 'https://adobe.com/products/photoshop')">
+                                <span class="btn-icon">+</span> Add
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-link-wrapper">
+                            <div class="icon-placeholder">🎬</div>
+                            <div class="info">
+                                <h3>Premiere Pro</h3>
+                                <p>Professional video editing</p>
+                            </div>
+                        </div>
+                        <div class="card-bottom">
+                            <span class="sub-text">Video Editor</span>
+                            <button class="btn-copy" data-url="https://adobe.com/products/premiere" onclick="addToBasket('Adobe Premiere Pro', 'https://adobe.com/products/premiere')">
+                                <span class="btn-icon">+</span> Add
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-link-wrapper">
+                            <div class="icon-placeholder">✏️</div>
+                            <div class="info">
+                                <h3>Illustrator</h3>
+                                <p>Vector graphics editor</p>
+                            </div>
+                        </div>
+                        <div class="card-bottom">
+                            <span class="sub-text">Vector Editor</span>
+                            <button class="btn-copy" data-url="https://adobe.com/products/illustrator" onclick="addToBasket('Adobe Illustrator', 'https://adobe.com/products/illustrator')">
+                                <span class="btn-icon">+</span> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Downloads Section -->
+            <section id="downloads">
+                <h2 class="section-title">Downloads</h2>
+                
+                <div class="card-grid">
+                    <a href="https://adobe.com/downloads" class="doc-card" target="_blank">
+                        <div class="doc-icon">📥</div>
+                        <div class="doc-name">Download Creative Cloud</div>
+                    </a>
+
+                    <a href="https://adobe.com/help" class="doc-card" target="_blank">
+                        <div class="doc-icon">📖</div>
+                        <div class="doc-name">Documentation</div>
+                    </a>
+
+                    <a href="https://adobe.com/tutorials" class="doc-card" target="_blank">
+                        <div class="doc-icon">🎥</div>
+                        <div class="doc-name">Tutorials</div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section id="faq">
+                <h2 class="section-title">FAQ</h2>
+                
+                <details>
+                    <summary>
+                        What is Adobe Creative Cloud?
+                        <span class="arrow">▼</span>
+                    </summary>
+                    <div class="faq-content">
+                        <p>Adobe Creative Cloud is a subscription service that provides access to professional creative applications.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>
+                        How much does it cost?
+                        <span class="arrow">▼</span>
+                    </summary>
+                    <div class="faq-content">
+                        <p>Check Adobe's official website for current pricing.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>
+                        Can I try it for free?
+                        <span class="arrow">▼</span>
+                    </summary>
+                    <div class="faq-content">
+                        <p>Yes, Adobe offers a 7-day free trial.</p>
+                    </div>
+                </details>
+            </section>
+        </div>
+    </main>
+
+    <!-- Basket UI (same as main) -->
+    <div id="copy-basket-ui" class="basket-container" style="display: none;">
+        <div class="basket-card">
+            <div class="basket-header">
+                <div class="basket-title">
+                    <h4>รายการที่เลือก (<span id="basket-count">0</span>)</h4>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <button class="btn-clear" onclick="clearBasket()">ล้างทั้งหมด</button>
+                    <button class="btn-minimize" onclick="toggleBasketUI(false)" style="background:none; border:none; cursor:pointer; color:var(--text-gray); font-size:18px;">▼</button>
+                </div>
+            </div>
+            <div id="preview-list" class="basket-items"></div>
+            <div class="basket-footer">
+                <button onclick="copyAllItems()" class="btn-copy-all">คัดลอกทั้งหมด</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="basket-floating-icon" class="basket-fab" style="display: none;" onclick="toggleBasketUI(true)">
+        <div class="fab-badge" id="fab-count">0</div>
+        <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/favicon.png" alt="Basket">
+    </div>
+
+    <div id="copy-toast" class="toast-hidden">คัดลอกสำเร็จ</div>
+
+    <footer class="main-footer">
+        <p>Copyright © 2026 8Baht Support. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../../js/theme-manager.js"></script>
+    <script src="../../js/config-loader.js"></script>
+    <script src="../../js/script.js"></script>
+</body>
+</html>
