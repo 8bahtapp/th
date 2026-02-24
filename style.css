@@ -874,6 +874,19 @@ section:last-child { border-bottom: none; }
     flex-direction: column;
 }
 
+.product-link-wrapper {
+    cursor: pointer;
+    transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.product-link-wrapper:hover h3 {
+    color: var(--accent-blue);
+}
+
+.product-link-wrapper:hover {
+    transform: translateY(-2px);
+}
+
 .product-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 24px rgba(0,0,0,0.08);
