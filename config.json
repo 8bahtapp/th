@@ -26,16 +26,5 @@
       "shadow-light": "rgba(0,0,0,0.3)",
       "shadow-medium": "rgba(0,0,0,0.5)"
     }
-  },
-  "urls": {
-    "baseRepo": "https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main",
-    "supportTicket": "https://8baht.com/help",
-    "gstarTicket": "https://cs.applicadthai.com/",
-    "mainSite": "https://8bahtapp.github.io/tools/"
-  },
-  "texts": {
-    "pageTitle": "8Baht Tools",
-    "openTicket": "Open Ticket",
-    "copySuccess": "คัดลอกสำเร็จ"
   }
 }
