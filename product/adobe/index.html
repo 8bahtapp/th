@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Adobe - 8Baht Tools</title>
+    <title>Adobe - 8Baht</title>
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/favicon.png">
     <link rel="stylesheet" href="/th/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+
+    </style>
 </head>
 <body>
-    <div class="animated-bg"></div>
 
     <header class="main-header">
         <div class="header-container">
@@ -17,20 +19,28 @@
                 <button class="mobile-menu-btn" id="mobile-toggle">
                     <span></span><span></span><span></span>
                 </button>
-
-                <a href="/th/" class="logo-wrapper">
+                <a href="/tools/" class="logo-wrapper">
                     <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/icon-8baht.png" alt="8Baht" class="logo">
                 </a>
-
                 <nav class="desktop-menu" id="main-nav">
                     <a href="/th/">Home</a>
                     <a href="/th/product/adobe/">Adobe</a>
                     <a href="/th/product/autodesk/">Autodesk</a>
                     <a href="/th/product/sketchup/">SketchUp</a>
                     <a href="/th/product/rhino/">Rhino</a>
+                    <a href="/th/product/bimbundle/">BIM Bundle</a>
+                    <a href="/th/product/corona/">Corona</a>
+                    <a href="/th/product/enscape/">Enscape</a>
+                    <a href="/th/product/vray/">V-Ray</a>
+                    <a href="/th/product/d5/">D5</a>
+                    <a href="/th/product/lumion/">Lumion</a>
+                    <a href="/th/product/foxit/">Foxit</a>
+                    <a href="/th/product/pdfelement/">PDFelement</a>
+                    <a href="/th/product/microsoft/">Microsoft</a>
+                    <a href="/th/product/gstarcad/">GstarCAD</a>
+                    <a href="/th/product/other/">อื่นๆ</a>
                 </nav>
             </div>
-
             <div class="header-right">
                 <button class="search-btn">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -44,137 +54,222 @@
 
     <div class="menu-overlay" id="menu-overlay"></div>
 
-    <main class="product-layout">
+    <div class="product-layout">
         <aside class="product-sidebar">
             <a href="/th/" class="back-link">← Back</a>
-            
-            <nav class="sticky-nav">
-                <span class="nav-label">Navigation</span>
-                <a href="#overview" class="nav-item active">Overview</a>
-                <a href="#products" class="nav-item">Products</a>
-                <a href="#downloads" class="nav-item">Downloads</a>
-                <a href="#faq" class="nav-item">FAQ</a>
-            </nav>
+            <div class="sticky-nav">
+                <span class="nav-label">เมนู</span>
+                <a href="#links" class="nav-item active">ลิงก์ติดตั้ง</a>
+                <a href="#trial" class="nav-item">ทดลองใช้</a>
+                <a href="#docs" class="nav-item">เอกสาร</a>
+                <a href="#faq" class="nav-item">คำถามที่พบบ่อย</a>
+                <a href="#tshoot" class="nav-item">แนวทางแก้ไข</a>
+                <a href="#older" class="nav-item">เวอร์ชั่นก่อนหน้า</a>
+            </div>
         </aside>
 
-        <div class="product-content">
-            <section id="overview">
-                <h2 class="section-title">Adobe Creative Cloud</h2>
-                <p>Adobe Creative Cloud is a collection of applications and services for graphic design, video editing, web development, and more.</p>
-            </section>
-
-            <section id="products">
-                <h2 class="section-title">Featured Products</h2>
-                
+        <main class="product-content">
+            <section id="links">
+                <h2 class="section-title">Get started link</h2>
                 <div class="card-grid">
                     <div class="product-card">
                         <div class="product-link-wrapper">
-                            <div class="icon-placeholder">🎨</div>
+                            <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/logo-8baht.png" alt="logo">
                             <div class="info">
-                                <h3>Photoshop</h3>
-                                <p>Professional image editing</p>
+                                <h3>ชื่อโปรดักส์</h3>
+                                <p>ใบอนุญาตเช่าใช้</p>
                             </div>
                         </div>
                         <div class="card-bottom">
-                            <span class="sub-text">Image Editor</span>
-                            <button class="btn-copy" data-url="https://adobe.com/products/photoshop" onclick="addToBasket('Adobe Photoshop', 'https://adobe.com/products/photoshop')">
-                                <span class="btn-icon">+</span> Add
-                            </button>
+                            <span class="sub-text">ลิงก์ติดตั้ง</span>
+                            <div style="display:flex; gap:8px; align-items:center;">
+                                <button class="btn-add-basket" onclick="addToBasket('Adobe Creative Cloud', 'https://sites.google.com/view/help8baht/ad')" title="เพิ่มลงรายการคัดลอกรวม">+</button>
+                                <button class="btn-copy" data-url="Adobe Creative Cloud&#10;ดาวน์โหลดติดตั้ง: https://sites.google.com/view/help8baht/ad&#10;บริการช่วยเหลือ: https://8baht.com/help">Copy Link</button>
+                            </div>
                         </div>
                     </div>
+                </div> 
+            </section>
 
+            <section id="trial">
+                <h2 class="section-title">Trial</h2>
+                <div class="card-grid">
                     <div class="product-card">
                         <div class="product-link-wrapper">
-                            <div class="icon-placeholder">🎬</div>
+                            <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/logo-8baht.png" alt="logo">
                             <div class="info">
-                                <h3>Premiere Pro</h3>
-                                <p>Professional video editing</p>
+                                <h3>ทดลองใช้</h3>
+                                <p>ทดลองใช้ฟรี 7-30 วัน (เงื่อนไขตามผู้ผลิต)</p>
                             </div>
                         </div>
                         <div class="card-bottom">
-                            <span class="sub-text">Video Editor</span>
-                            <button class="btn-copy" data-url="https://adobe.com/products/premiere" onclick="addToBasket('Adobe Premiere Pro', 'https://adobe.com/products/premiere')">
-                                <span class="btn-icon">+</span> Add
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-link-wrapper">
-                            <div class="icon-placeholder">✏️</div>
-                            <div class="info">
-                                <h3>Illustrator</h3>
-                                <p>Vector graphics editor</p>
+                            <span class="sub-text">ทดลองใช้</span>
+                            <div style="display:flex; gap:8px; align-items:center;">
+                                <button class="btn-add-basket" onclick="addToBasket('Adobe Free Trial', 'https://www.adobe.com/th_en/downloads.html')" title="เพิ่มลงรายการคัดลอกรวม">+</button>
+                                <button class="btn-copy" data-url="Adobe Trial&#10;ดาวน์โหลดติดตั้ง: https://www.adobe.com/th_en/downloads.html&#10;บริการช่วยเหลือ: https://8baht.com/help">Copy Link</button>
                             </div>
-                        </div>
-                        <div class="card-bottom">
-                            <span class="sub-text">Vector Editor</span>
-                            <button class="btn-copy" data-url="https://adobe.com/products/illustrator" onclick="addToBasket('Adobe Illustrator', 'https://adobe.com/products/illustrator')">
-                                <span class="btn-icon">+</span> Add
-                            </button>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section id="downloads">
-                <h2 class="section-title">Downloads</h2>
-                
-                <div class="card-grid">
-                    <a href="https://adobe.com/downloads" class="doc-card" target="_blank">
-                        <div class="doc-icon">📥</div>
-                        <div class="doc-name">Download Creative Cloud</div>
+            <section id="docs">
+                <h2 class="section-title">Document</h2> 
+
+                <div class="doc-card">
+                    <a class="main-link" href="https://drive.google.com/file/d/1bAhDrH2Y58BgvbeNK_jbs6Gy7SsBwt1Z/view?usp=sharing" target="_blank" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #333; flex: 1;">
+                        <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/pdf.png" alt="PDF" style="width: 28px; height: 28px;">
+                        <div class="doc-name" style="color: inherit;">ตารางเปรียบเทียบตัวอย่าง1</div> 
                     </a>
+                    <div style="display: flex; gap: 8px;">
+                        <a class="download-btn" href="#" title="ดาวน์โหลด" style="color: #666; padding: 8px; display: flex; align-items: center;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        </a>
+                        <button class="btn-copy-icon" title="คัดลอกลิงก์" style="background: none; border: none; cursor: pointer; color: #666; padding: 8px; display: flex; align-items: center;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                        </button>
+                    </div>
                 </div>
-            </section>
+
+                <div class="doc-card">
+                    <a class="main-link" href="https://drive.google.com/file/d/1CRrvaJrf63mcbivz_6r_TRgghyxXtbUg/view?usp=sharing" target="_blank" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #333; flex: 1;">
+                        <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/pdf.png" alt="PDF" style="width: 28px; height: 28px;">
+                        <div class="doc-name" style="color: inherit;">ตารางเปรียบเทียบตัวอย่าง2</div> 
+                    </a>
+                    <div style="display: flex; gap: 8px;">
+                        <a class="download-btn" href="#" title="ดาวน์โหลด" style="color: #666; padding: 8px; display: flex; align-items: center;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        </a>
+                        <button class="btn-copy-icon" title="คัดลอกลิงก์" style="background: none; border: none; cursor: pointer; color: #666; padding: 8px; display: flex; align-items: center;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            </section>        
 
             <section id="faq">
                 <h2 class="section-title">FAQ</h2>
-                
-                <details>
-                    <summary>
-                        What is Adobe Creative Cloud?
-                        <span class="arrow">▼</span>
-                    </summary>
+                <details class="faq-item">
+                    <summary>คำถามที่พบบ่อยข้อที่ 1<span class="arrow">▾</span></summary>
                     <div class="faq-content">
-                        <p>Adobe Creative Cloud is a subscription service that provides access to professional creative applications.</p>
+                        <span>รายละเอียดคำตอบที่พบบ่อยข้อที่ 1</span>
+                        <button class="btn-copy-icon" data-url="แนะนำให้ลบเวอร์ชันเก่าออกก่อนเพื่อป้องกันความขัดแย้งของไฟล์โปรแกรม (Conflict)" title="คัดลอกคำตอบ">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </details>
+              
+                <details class="faq-item">
+                    <summary>คำถามที่พบบ่อยข้อที่ 2<span class="arrow">▾</span></summary>
+                    <div class="faq-content">
+                        <span>รายละเอียดคำตอบที่พบบ่อยข้อที่ 2</span>
+                        <button class="btn-copy-icon" data-url="Adobe ใช้อีเมลในการเปิดใช้งาน" title="คัดลอกคำตอบ">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </details>
+              
+                <details class="faq-item">
+                    <summary>คำถามที่พบบ่อยข้อที่ 3<span class="arrow">▾</span></summary>
+                    <div class="faq-content">
+                        <span>รายละเอียดคำตอบที่พบบ่อยข้อที่ 3</span>
+                        <button class="btn-copy-icon" data-url="สูงสุดสองเครื่องเช่นที่บ้านกับที่ทำงาน" title="คัดลอกคำตอบ">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
                     </div>
                 </details>
             </section>
-        </div>
-    </main>
 
-    <div id="copy-basket-ui" class="basket-container" style="display: none;">
-        <div class="basket-card">
-            <div class="basket-header">
-                <div class="basket-title">
-                    <h4>รายการที่เลือก (<span id="basket-count">0</span>)</h4>
+            <section id="tshoot">
+                <h2 class="section-title">Knowledge Base</h2>
+                <div class="card-grid">
+                    <div class="product-card">
+                        <div class="product-link-wrapper">
+                            <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/logo-8baht.png" alt="logo">
+                            <div class="info">
+                                <h3>หัวข้อการแก้ปัญหา</h3>
+                                <p>คำอธิบายรายละเอรยดของปัญหา</p>
+                            </div>
+                        </div>
+                        <div class="card-bottom">
+                            <span class="sub-text">แนวทางแก้ไข</span>
+                            <div style="display:flex; gap:8px; align-items:center;">
+                                <button class="btn-add-basket" onclick="addToBasket('Help: Creative Cloud Desk', 'https://8baht.com/help')" title="เพิ่มลงรายการคัดลอกรวม">+</button>
+                                <button class="btn-copy" data-url="Help&#10;วิธีแก้ไข: https://8baht.com/help&#10;บริการช่วยเหลือ: https://8baht.com/help">Copy Link</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <button class="btn-clear" onclick="clearBasket()">ล้างทั้งหมด</button>
-                    <button class="btn-minimize" onclick="toggleBasketUI(false)" style="background:none; border:none; cursor:pointer; color:var(--text-gray); font-size:18px;">▼</button>
+            </section>
+
+            <section id="older">
+                <h2 class="section-title">Older Versions</h2>
+                <div class="card-grid">
+                    <div class="product-card">
+                        <div class="product-link-wrapper">
+                            <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/logo-8baht.png" alt="logo">
+                            <div class="info">
+                                <h3>ชื่อโปรดักส์และเวอร์ชั่น</h3>
+                                <p>รายละเอียด(หากมี)</p>
+                            </div>
+                        </div>
+                        <div class="card-bottom">
+                            <span class="sub-text">เวอร์ชั่นก่อนหน้า</span>
+                            <div style="display:flex; gap:8px; align-items:center;">
+                                <button class="btn-add-basket" onclick="addToBasket('Adobe 2023', 'https://8baht.com/')" title="เพิ่มลงรายการคัดลอกรวม">+</button>
+                                <button class="btn-copy" data-url="Adobe&#10;2023: https://8baht.com/&#10;บริการช่วยเหลือ">Copy Link</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div id="preview-list" class="basket-items"></div>
-            <div class="basket-footer">
-                <button onclick="copyAllItems()" class="btn-copy-all">คัดลอกทั้งหมด</button>
-            </div>
-        </div>
+            </section>
+        </main>
     </div>
 
-    <div id="basket-floating-icon" class="basket-fab" style="display: none;" onclick="toggleBasketUI(true)">
-        <div class="fab-badge" id="fab-count">0</div>
-        <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/favicon.png" alt="Basket">
-    </div>
+<div id="copy-basket-ui" class="basket-container" style="display: none;">
+    <div class="basket-card">
+        <div class="basket-header">
+            <div class="basket-title">
+                <h4>รายการที่เลือก (<span id="basket-count">0</span>)</h4>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <button class="btn-clear" onclick="clearBasket()">ล้างทั้งหมด</button>
+    
+                <button class="btn-minimize" onclick="toggleBasketUI(false)" style="background:none; border:none; cursor:pointer; color:#86868b; font-size:18px;">
+                    ▼
+                </button>
+            </div>
+        </div>
 
-    <div id="copy-toast" class="toast-hidden">คัดลอกสำเร็จ</div>
+        <div id="preview-list" class="basket-items"></div>
+        <div class="basket-footer">
+            <button onclick="copyAllItems()" class="btn-copy-all">คัดลอกทั้งหมด</button>
+        </div>
+    </div>
+</div>
+
+<div id="basket-floating-icon" class="basket-fab" style="display: none;" onclick="toggleBasketUI(true)">
+    <div class="fab-badge" id="fab-count">0</div>
+    <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/favicon.png" alt="Basket">
+</div>
+
+    <div id="copy-toast" class="toast-hidden">คัดลอกสำเร็จ!</div>
 
     <footer class="main-footer">
         <p>Copyright © 2026 8Baht Support. All rights reserved.</p>
     </footer>
 
     <script src="/th/js/theme-manager.js"></script>
-    <script src="/th/js/config-loader.js"></script>
     <script src="/th/js/script.js"></script>
-</body>
-</html>
+
+        </body>
+    </html>
