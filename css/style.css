@@ -1244,30 +1244,20 @@ body.theme-transition * {
     transition: background-color var(--transition-normal), color var(--transition-normal), border-color var(--transition-normal) !important;
 }
 
-/* THEME TOGGLE BUTTON */
 .theme-toggle-btn {
-    background: var(--bg-secondary);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 18px;
-    transition: all var(--transition-fast);
-    margin-right: 10px;
-}
-
-html[data-theme="dark"] .theme-toggle-btn {
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: var(--transition-fast);
 }
 
 .theme-toggle-btn:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
-
 .theme-toggle-btn:active {
-    transform: scale(0.95);
+  transform: scale(0.95);
 }
