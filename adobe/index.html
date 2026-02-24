@@ -71,19 +71,28 @@
             <section id="links">
                 <h2 class="section-title">Get started link</h2>
                 <div class="card-grid">
-                    <div class="product-card">
-                        <div class="product-link-wrapper">
+                    <div class="product-card" data-link="https://sites.google.com/view/help8baht/ad">
+                        <div class="product-link-wrapper js-product-link">
                             <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/logo-8baht.png" alt="logo">
                             <div class="info">
                                 <h3>ชื่อโปรดักส์</h3>
                                 <p>ใบอนุญาตเช่าใช้</p>
                             </div>
                         </div>
+
                         <div class="card-bottom">
                             <span class="sub-text">ลิงก์ติดตั้ง</span>
-                            <div style="display:flex; gap:8px; align-items:center;">
-                                <button class="btn-add-basket" onclick="addToBasket('Adobe Creative Cloud', 'https://sites.google.com/view/help8baht/ad')" title="เพิ่มลงรายการคัดลอกรวม">+</button>
-                                <button class="btn-copy" data-url="Adobe Creative Cloud&#10;ดาวน์โหลดติดตั้ง: https://sites.google.com/view/help8baht/ad&#10;บริการช่วยเหลือ: https://8baht.com/help">Copy Link</button>
+                    <div style="display:flex; gap:8px; align-items:center;">
+                                <button
+                    class="btn-add-basket"
+                    onclick="addToBasket('Adobe Creative Cloud', this.closest('.product-card').dataset.link)"
+                                    title="เพิ่มลงรายการคัดลอกรวม">+</button>
+
+                                <button
+                                    class="btn-copy"
+                                    data-url="Adobe Creative Cloud&#10;ดาวน์โหลดติดตั้ง: https://sites.google.com/view/help8baht/ad&#10;บริการช่วยเหลือ: https://8baht.com/help">
+                                    Copy Link
+                                </button>
                             </div>
                         </div>
                     </div>
