@@ -61,7 +61,7 @@ body.theme-transition * {
 body {
     font-family: 'Noto Sans Thai', -apple-system, BlinkMacSystemFont, sans-serif;
     
-    background-color: var(--bg-color);
+    background: var(--bg-main);
     color: var(--text-main);
     
     line-height: 1.6; 
@@ -80,10 +80,10 @@ body {
     position: sticky;
     top: 0;
     z-index: 9999;
-    background-color: var(--header-glass);
+    background-color: var(--bg-header);
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid var(--border-color);
     height: 48px;
     display: flex;
     align-items: center;
@@ -171,8 +171,8 @@ body {
 }
 
 .card {
-    background: var(--card-bg);
-    border-radius: var(--radius-main);
+    background: var(--bg-card);
+    border-radius: var(--radius);
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -181,7 +181,7 @@ body {
     text-decoration: none;
     min-height: 180px;
     border: 1px solid rgba(255, 255, 255, 0.7);
-    box-shadow: var(--shadow-standard);
+    box-shadow: var(--shadow-md);
     transition: all 0.5s cubic-bezier(0.15, 0.83, 0.66, 1);
     position: relative;
     overflow: hidden;
@@ -206,7 +206,7 @@ body {
 }
 
 .card:hover {
-    box-shadow: var(--shadow-hover);
+    box-shadow: var(--shadow-lg);
     transform: translateY(-10px) scale(1.01);
 }
 .card:hover img { transform: scale(1.1) translateY(-10px); }
@@ -232,8 +232,8 @@ body {
 }
 
 .btn-copy {
-    background: #f2f2f7;
-    color: var(--apple-blue);
+    background: var(--bg-secondary);
+    color: var(--accent-blue);
     border: none;
     padding: 8px 16px;
     border-radius: 12px;
@@ -249,7 +249,7 @@ body {
 .btn-copy:active { transform: scale(0.92); }
 
 .btn-copy.success {
-    background: var(--apple-green) !important;
+    background: var(--accent-green) !important;
     color: white !important;
 }
 
@@ -339,7 +339,7 @@ body {
     padding: 60px 40px;
     color: var(--text-gray);
     font-size: 11px;
-    border-top: 1px solid #e0e0e0;
+    border-top: 1px solid var(--border-color);
     margin-top: 40px;
 }
 
