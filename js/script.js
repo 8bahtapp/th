@@ -1,38 +1,31 @@
-/* ===== MAIN SCRIPT ===== */
+console.log('✅ script.js loaded');
 
-// Toast notification
-const showToast = () => {
-    const toast = document.getElementById('copy-toast');
-    if (!toast) return;
-    toast.classList.remove('toast-hidden');
-    setTimeout(() => {
-        toast.classList.add('toast-hidden');
-    }, 2000);
-};
-
-// PIN Security System
 const SECRET_KEY = "ODg4OA==";
 const SESSION_DURATION = 12 * 60 * 60 * 1000;
 
 function initPinSystem() {
     const authTime = localStorage.getItem('auth_time_8baht');
     const now = new Date().getTime();
-    if (authTime && (now - authTime < SESSION_DURATION)) return;
+    if (authTime && (now - authTime < SESSION_DURATION)) {
+        console.log('✅ PIN already authenticated');
+        return;
+    }
 
+    console.log('🔐 Showing PIN screen');
     const pinHtml = `
         <div id="pin-screen">
             <div class="pin-container">
-                <p style="font-size:16px; color:rgba(255,255,255,0.6); margin-bottom:20px; font-weight:600;">Enter Security PIN</p>
+                <p style="font-size:16px; color:rgba(255,255,255,0.6); margin-bottom:20px; font-weight:600;">Enter PIN (8888)</p>
                 <div class="pin-display-wrapper">
                     <div class="pin-display" id="pin-dots"></div>
                 </div>
                 <div class="pin-grid">
-                    ${[1, 2, 3, 4, 5, 6, 7, 8, 9].map(n => `<button class="pin-btn" onclick="pressPin('${n}')">${n}</button>`).join('')}
+                    ${[1,2,3,4,5,6,7,8,9].map(n => `<button class="pin-btn" onclick="pressPin('${n}')">${n}</button>`).join('')}
                     <button class="pin-btn special" onclick="clearPin()">Clear</button>
                     <button class="pin-btn" onclick="pressPin('0')">0</button>
                     <button class="pin-btn ok-btn" id="ok-button" onclick="validateAndUnlock()">OK</button>
                 </div>
-                <div id="pin-error" style="color:#ff3b30; font-size:12px; margin: 15px 0; min-height:16px; font-weight:500;"></div>
+                <div id="pin-error"></div>
             </div>
         </div>`;
     document.body.insertAdjacentHTML('afterbegin', pinHtml);
@@ -44,94 +37,72 @@ window.pressPin = (num) => {
         inputCode += num;
         const dots = document.getElementById('pin-dots');
         if (dots) dots.innerText = "•".repeat(inputCode.length);
-        document.getElementById('ok-button')?.classList.add('active');
     }
 };
 
 window.clearPin = () => {
     inputCode = "";
-    document.getElementById('pin-dots').innerText = "";
-    document.getElementById('pin-error').innerText = "";
-    document.getElementById('ok-button').classList.remove('active');
+    const dots = document.getElementById('pin-dots');
+    if (dots) dots.innerText = "";
+    const error = document.getElementById('pin-error');
+    if (error) error.innerText = "";
 };
 
 window.validateAndUnlock = () => {
     if (btoa(inputCode) === SECRET_KEY) {
+        console.log('✅ PIN correct');
         localStorage.setItem('auth_time_8baht', new Date().getTime());
         const screen = document.getElementById('pin-screen');
-        screen.style.opacity = "0";
-        setTimeout(() => screen.remove(), 400);
+        if (screen) {
+            screen.style.opacity = "0";
+            setTimeout(() => screen.remove(), 400);
+        }
     } else {
-        document.getElementById('pin-error').innerText = "Access Denied.";
+        console.log('❌ PIN incorrect');
+        const error = document.getElementById('pin-error');
+        if (error) error.innerText = "Access Denied";
         setTimeout(clearPin, 800);
     }
 };
 
-// Basket Management
 let basket = JSON.parse(localStorage.getItem('8baht_basket')) || [];
-let isMinimized = JSON.parse(localStorage.getItem('8baht_minimized')) || false;
 
 function updateBasketUI() {
     const basketUI = document.getElementById('copy-basket-ui');
-    const basketCount = document.getElementById('basket-count');
-    const previewList = document.getElementById('preview-list');
-    const fabIcon = document.getElementById('basket-floating-icon');
-    const fabCount = document.getElementById('fab-count');
+    if (!basketUI) return;
 
-    localStorage.setItem('8baht_basket', JSON.stringify(basket));
-    localStorage.setItem('8baht_minimized', JSON.stringify(isMinimized));
-
-    if (!basketUI || !basketCount || !previewList) return;
+    console.log('🛒 Updating basket - items:', basket.length);
 
     if (basket.length === 0) {
         basketUI.style.display = 'none';
-        if (fabIcon) fabIcon.style.display = 'none';
         return;
     }
 
-    if (isMinimized) {
-        basketUI.style.display = 'none';
-        if (fabIcon) {
-            fabIcon.style.display = 'flex';
-            if (fabCount) fabCount.innerText = basket.length;
-        }
-    } else {
-        basketUI.style.display = 'block';
-        if (fabIcon) fabIcon.style.display = 'none';
-    }
-
-    basketCount.innerText = basket.length;
-    previewList.innerHTML = basket
-        .map(
-            (item, index) => `
-        <div class="basket-item">
-            <span>${item.name}</span>
-            <button onclick="removeItem(${index})" style="background:none; border:none; color:var(--accent-red); cursor:pointer;">✕</button>
-        </div>`
-        )
+    basketUI.style.display = 'block';
+    document.getElementById('basket-count').innerText = basket.length;
+    document.getElementById('preview-list').innerHTML = basket
+        .map((item, i) => `<div class="basket-item"><span>${item.name}</span><button onclick="removeItem(${i})" style="background:none;border:none;color:var(--accent-red);cursor:pointer;">✕</button></div>`)
         .join('');
-}
-
-function toggleBasketUI(showFull) {
-    isMinimized = !showFull;
-    updateBasketUI();
+    
+    localStorage.setItem('8baht_basket', JSON.stringify(basket));
 }
 
 window.addToBasket = function(name, url) {
+    console.log('➕ Adding:', name);
     if (!basket.find(item => item.url === url)) {
         basket.push({ name, url });
-        isMinimized = false;
         updateBasketUI();
     }
 };
 
 window.removeItem = function(index) {
+    console.log('➖ Removing:', basket[index].name);
     basket.splice(index, 1);
     updateBasketUI();
 };
 
 window.clearBasket = function() {
-    if (confirm('ล้างรายการ?')) {
+    if (confirm('Clear items?')) {
         basket = [];
         updateBasketUI();
     }
@@ -139,95 +110,36 @@ window.clearBasket = function() {
 
 window.copyAllItems = function() {
     if (basket.length === 0) return;
-    let text = basket.map(item => `${item.name}\nดาวน์โหลดติดตั้ง: ${item.url}`).join('\n\n');
-    text += "\n\nบริการช่วยเหลือ: https://8baht.com/help";
-    navigator.clipboard.writeText(text).then(() => {
-        const btn = document.querySelector('.btn-copy-all');
-        if (btn) {
-            const originalText = btn.innerText;
-            btn.innerText = 'คัดลอกสำเร็จ';
-            setTimeout(() => (btn.innerText = originalText), 2000);
-        }
-    });
+    let text = basket.map(item => `${item.name}\n${item.url}`).join('\n\n');
+    navigator.clipboard.writeText(text);
+    console.log('📋 Copied');
 };
 
-// DOM Content Loaded
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('🚀 Initializing');
     initPinSystem();
     updateBasketUI();
 
-    const mobileToggle = document.querySelector('.mobile-menu-btn');
-    const mainNav = document.querySelector('.desktop-menu');
+    const toggle = document.querySelector('.mobile-menu-btn');
+    const menu = document.querySelector('.desktop-menu');
     const overlay = document.getElementById('menu-overlay');
 
-    if (mobileToggle && mainNav && overlay) {
+    if (toggle && menu && overlay) {
         const toggleMenu = () => {
-            const isOpen = mainNav.classList.toggle('active');
-            overlay.classList.toggle('active', isOpen);
-            document.body.style.overflow = isOpen ? 'hidden' : '';
+            menu.classList.toggle('active');
+            overlay.classList.toggle('active');
         };
-        mobileToggle.addEventListener('click', toggleMenu);
+        toggle.addEventListener('click', toggleMenu);
         overlay.addEventListener('click', toggleMenu);
     }
 
-    // Copy to Clipboard
     document.addEventListener('click', e => {
-        const btn = e.target.closest('.btn-copy-icon, .btn-copy');
+        const btn = e.target.closest('.btn-copy');
         if (btn && btn.hasAttribute('data-url')) {
-            navigator.clipboard.writeText(btn.getAttribute('data-url')).then(() => {
-                showToast();
-                if (btn.classList.contains('btn-copy')) {
-                    const originalText = btn.innerHTML;
-                    btn.classList.add('success');
-                    btn.innerText = '✔';
-                    setTimeout(() => {
-                        btn.classList.remove('success');
-                        btn.innerHTML = originalText;
-                    }, 2000);
-                }
-            });
+            navigator.clipboard.writeText(btn.getAttribute('data-url'));
+            console.log('📋 Copied link');
         }
     });
 
-    // Section Observer for Active Navigation
-    const observer = new IntersectionObserver(
-        entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.getAttribute('id');
-                    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-                    document.querySelector(`.nav-item[href="#${id}"]`)?.classList.add('active');
-                }
-            });
-        },
-        { rootMargin: '-20% 0px -70% 0px' }
-    );
-    document.querySelectorAll('section[id]').forEach(s => observer.observe(s));
-
-    // Document Card Links
-    document.querySelectorAll('.doc-card').forEach(card => {
-        const mainLink = card.querySelector('.main-link');
-        if (!mainLink) return;
-
-        const fullUrl = mainLink.href;
-        const fileName = card.querySelector('.doc-name')?.innerText || 'Document';
-        const fileIdMatch = fullUrl.match(/\/d\/(.+?)\//);
-
-        if (fileIdMatch) {
-            const downloadBtn = card.querySelector('.download-btn');
-            if (downloadBtn) {
-                downloadBtn.href = `https://drive.google.com/uc?export=download&id=${fileIdMatch[1]}`;
-                downloadBtn.target = "_blank";
-            }
-        }
-
-        const copyBtn = card.querySelector('.btn-copy-icon');
-        if (copyBtn && !copyBtn.hasAttribute('data-url')) {
-            copyBtn.addEventListener('click', e => {
-                e.preventDefault();
-                e.stopPropagation();
-                navigator.clipboard.writeText(`${fileName}\n${fullUrl}`).then(showToast);
-            });
-        }
-    });
+    console.log('✅ Ready!');
 });

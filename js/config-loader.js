@@ -1,47 +1,27 @@
-/* ===== CONFIG LOADER ===== */
+console.log('✅ config-loader.js loaded');
 
 class ConfigLoader {
-    constructor(configPath = 'config.json') {
+    constructor(configPath = '/th/config.json') {
         this.configPath = configPath;
         this.config = null;
+        this.load();
     }
 
     async load() {
         try {
+            console.log('📥 Loading config from:', this.configPath);
             const response = await fetch(this.configPath);
-            if (!response.ok) throw new Error(`Failed to load config: ${response.status}`);
             this.config = await response.json();
-            return this.config;
+            console.log('✅ Config loaded');
         } catch (error) {
-            console.error('ConfigLoader Error:', error);
-            return null;
+            console.error('❌ Config load error:', error);
         }
     }
 
     getUrl(key) {
         return this.config?.urls[key] || '';
     }
-
-    getText(key) {
-        return this.config?.texts[key] || '';
-    }
 }
 
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', async () => {
-        const configLoader = new ConfigLoader('config.json');
-        const config = await configLoader.load();
-        if (config) {
-            console.log('Config loaded successfully:', config);
-            window.configLoader = configLoader;
-        }
-    });
-} else {
-    const configLoader = new ConfigLoader('config.json');
-    configLoader.load().then(config => {
-        if (config) {
-            console.log('Config loaded successfully:', config);
-            window.configLoader = configLoader;
-        }
-    });
-}
+const configLoader = new ConfigLoader('/th/config.json');
+window.configLoader = configLoader;

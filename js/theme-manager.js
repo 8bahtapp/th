@@ -1,55 +1,41 @@
-/* ===== THEME MANAGER ===== */
+console.log('✅ theme-manager.js loaded');
 
 class ThemeManager {
     constructor() {
         this.storageKey = '8baht_theme';
         this.themeAttribute = 'data-theme';
-        this.transitionClass = 'theme-transition';
         this.init();
     }
 
     init() {
+        console.log('✅ ThemeManager initializing');
         const savedTheme = localStorage.getItem(this.storageKey);
         const systemTheme = this.getSystemTheme();
         const theme = savedTheme || systemTheme;
-
+        
         this.setTheme(theme, false);
         this.createToggleButton();
         this.watchSystemTheme();
     }
 
     getSystemTheme() {
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            return 'dark';
-        }
-        return 'light';
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
 
     setTheme(theme, animate = true) {
-        if (animate) {
-            document.body.classList.add(this.transitionClass);
-        }
-
+        console.log('🎨 Setting theme:', theme);
         document.documentElement.setAttribute(this.themeAttribute, theme);
         localStorage.setItem(this.storageKey, theme);
 
-        const toggleBtn = document.getElementById('theme-toggle-btn');
-        if (toggleBtn) {
-            toggleBtn.innerHTML = theme === 'dark' ? '☀️' : '🌙';
-            toggleBtn.setAttribute('aria-label', theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode');
-        }
-
-        if (animate) {
-            setTimeout(() => {
-                document.body.classList.remove(this.transitionClass);
-            }, 300);
+        const btn = document.getElementById('theme-toggle-btn');
+        if (btn) {
+            btn.innerHTML = theme === 'dark' ? '☀️' : '🌙';
         }
     }
 
     toggleTheme() {
         const current = document.documentElement.getAttribute(this.themeAttribute) || 'light';
-        const newTheme = current === 'dark' ? 'light' : 'dark';
-        this.setTheme(newTheme, true);
+        this.setTheme(current === 'dark' ? 'light' : 'dark', true);
     }
 
     watchSystemTheme() {
@@ -65,24 +51,22 @@ class ThemeManager {
     createToggleButton() {
         if (document.getElementById('theme-toggle-btn')) return;
 
-        const toggleBtn = document.createElement('button');
-        toggleBtn.id = 'theme-toggle-btn';
-        toggleBtn.className = 'theme-toggle-btn';
-        toggleBtn.innerHTML = document.documentElement.getAttribute(this.themeAttribute) === 'dark' ? '☀️' : '🌙';
-        toggleBtn.setAttribute('aria-label', 'Toggle theme');
-        toggleBtn.addEventListener('click', () => this.toggleTheme());
+        const btn = document.createElement('button');
+        btn.id = 'theme-toggle-btn';
+        btn.className = 'theme-toggle-btn';
+        btn.innerHTML = document.documentElement.getAttribute(this.themeAttribute) === 'dark' ? '☀️' : '🌙';
+        btn.onclick = () => this.toggleTheme();
 
         const header = document.querySelector('.header-right');
         if (header) {
-            header.insertBefore(toggleBtn, header.firstChild);
+            header.insertBefore(btn, header.firstChild);
+            console.log('✅ Theme toggle button created');
         }
     }
 }
 
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        new ThemeManager();
-    });
+    document.addEventListener('DOMContentLoaded', () => new ThemeManager());
 } else {
     new ThemeManager();
 }
