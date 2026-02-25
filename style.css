@@ -784,6 +784,24 @@ html[data-theme="dark"] .basket-card {
     z-index: 2;
 }
 
+.card-special:hover .btn-card-ticket {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-special:hover img {
+    transform: scale(1.05) translateY(-15px);
+}
+
+.btn-card-ticket:hover {
+    background-color: var(--text-main);
+}
+
+html[data-theme="dark"] .btn-card-ticket:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
 .doc-card-link {
     text-decoration: none;
     color: inherit;
@@ -1358,3 +1376,4 @@ html[data-theme="dark"] .main-header::before {
   );
   pointer-events: none;
 }
+
