@@ -18,6 +18,7 @@
   --bg-card: #ffffff;
   --bg-header: rgba(255, 255, 255, 0.8);
   --bg-secondary: #fafafa;
+  --background-color: #000000;
 
   /* UI */
   --border-color: rgba(0,0,0,0.05);
@@ -47,10 +48,12 @@ html[data-theme="dark"] {
 
   /* Dark Background Premium Dark */
   --bg-main: #0f1115;
-  --bg-card: #15171c;
+  --bg-card: #181b21;
+  --bg-card-top: #252933;
   --bg-header: rgba(15, 17, 21, 0.85);
   --bg-secondary: #1c1f26;
 
+  
   /* Dark UI */
   --border-color: rgba(255,255,255,0.06);
 
@@ -919,7 +922,7 @@ section:last-child { border-bottom: none; }
 }
 
 .product-card {
-    background: var(--card-bg, #fff);
+    background: var(--bg-card-top);
     border-radius: 16px;
     border: 1px solid rgba(0,0,0,0.1);
     box-shadow: 0 4px 12px rgba(0,0,0,0.03);
@@ -987,7 +990,7 @@ section:last-child { border-bottom: none; }
 .card-bottom {
     padding: 15px 25px;
     background: var(--bg-secondary);
-    border-top: 1px solid #f0f0f0;
+    border-top: 1px rgba(255, 255, 255, 0.08);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1015,8 +1018,9 @@ section:last-child { border-bottom: none; }
 }
 
 .btn-copy:hover {
-    background: #2c2f33;
-    color: var(--text-main);
+    background: var(--accent-blue);
+    color: var(--background-color);
+    color: #ffffff;
 }
 
 .btn-copy.success {
