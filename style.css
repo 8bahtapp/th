@@ -13,12 +13,15 @@
   --text-main: #2c2f33;
   --text-gray: #86868b;
 
+  --border-button: #2c2f33;
+  --button: #e1e1eb;
+
   /* Background */
   --bg-main: #f5f5f7;
   --bg-card: #ffffff;
   --bg-header: rgba(255, 255, 255, 0.8);
   --bg-secondary: #fafafa;
-  --background-color: #000000;
+  --background-color: #fafafa;
 
   /* UI */
   --border-color: rgba(0,0,0,0.05);
@@ -52,13 +55,16 @@ html[data-theme="dark"] {
   --text-main: #f5f5f7;
   --text-gray: #9a9aa0;
 
+  --border-button: #2a2d34;
+  --button: #0f1115;
+
   /* Dark Background Premium Dark */
   --bg-main: #0f1115;
   --bg-card: #181b21;
   --bg-card-top: #252933;
   --bg-header: rgba(15, 17, 21, 0.85);
   --bg-secondary: #1c1f26;
-  --background-color: #000000;
+  --background-color: #08090a;
   
   /* Dark UI */
   --border-color: rgba(255,255,255,0.06);
@@ -279,9 +285,9 @@ html[data-theme="dark"] .card-title {
 }
 
 .btn-copy {
-    background: var(--bg-secondary);
+    background: var(--background-color);
     color: var(--text-main);
-    border: 1.5px solid var(--border-color);
+    border: 1.5px solid var(--border-button);
     padding: 7px 20px;
     border-radius: 980px;
     font-size: 14px;
@@ -293,16 +299,22 @@ html[data-theme="dark"] .card-title {
     transition: all 0.2s ease;
 }
 
-.btn-copy:active { transform: scale(0.92); }
-
-.btn-copy.success {
-    background: var(--accent-green) !important;
-    color: white !important;
+.btn-copy:hover {
+    background: var(--accent-blue);
+    color: var(--background-color);
+    color: #ffffff;
 }
 
-.btn-copy svg {
-    margin-right: 6px;
-    vertical-align: middle;
+.btn-copy.success {
+    background: var(--accent-green);
+    color: #ffffff;
+    border-color: var(--accent-green);
+    box-shadow: 0 0 0 4px rgba(52,199,89,0.15);
+}
+
+.btn-icon {
+    font-size: 16px;
+    line-height: 1;
 }
 
 .mobile-menu-btn {
@@ -740,7 +752,7 @@ html[data-theme="dark"] .card-title {
 
 /* Add to Basket Button */
 .btn-add-basket {
-    background: var(--bg-secondary);
+    background: var(--button);
     border: none;
     width: 22px;
     height: 22px;
@@ -1013,39 +1025,6 @@ section:last-child { border-bottom: none; }
     font-size: 12px;
     font-weight: 500;
     color: var(--text-gray);
-}
-
-.btn-copy {
-    background: var(--bg-secondary);
-    color: var(--text-main);
-    border: 1.5px solid var(--border-color);
-    padding: 7px 20px;
-    border-radius: 980px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.2s ease;
-}
-
-.btn-copy:hover {
-    background: var(--accent-blue);
-    color: var(--background-color);
-    color: #ffffff;
-}
-
-.btn-copy.success {
-    background: var(--accent-green);
-    color: #ffffff;
-    border-color: var(--accent-green);
-    box-shadow: 0 0 0 4px rgba(52,199,89,0.15);
-}
-
-.btn-icon {
-    font-size: 16px;
-    line-height: 1;
 }
 
 .doc-card {
@@ -1361,4 +1340,3 @@ html[data-theme="dark"] .main-header::before {
   );
   pointer-events: none;
 }
-
