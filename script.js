@@ -153,7 +153,6 @@ function toggleBasketUI(showFull) {
 function addToBasket(name, url) {
     if (!basket.find(item => item.url === url)) {
         basket.push({ name, url });
-        isMinimized = false;
         updateBasketUI();
     }
 }

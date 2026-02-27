@@ -22,6 +22,7 @@
   --bg-header: rgba(255, 255, 255, 0.8);
   --bg-secondary: #fafafa;
   --background-color: #fafafa;
+  --bg-card-top: #F0F0F0;
 
   /* UI */
   --border-color: rgba(0,0,0,0.05);
@@ -39,11 +40,11 @@
   --toggle-border: var(--text-gray);
   --toggle-circle: #86868b;
   
-  --basket-bg: rgba(255,255,255,0.85);
-  --basket-border: rgba(0,0,0,0.08);
+  --basket-bg: rgba(255, 255, 255, 0.9);
+  --basket-border: rgba(0, 0, 0, 0.06);
   --basket-text: var(--text-main);
-  --basket-button-bg: #ffffff;
-  --basket-button-text: #000000;
+  --basket-button-bg: var(--bg-card-top);
+  --basket-button-text: var(--text-main);
 }
 
 /* DARK MODE */
@@ -78,10 +79,10 @@ html[data-theme="dark"] {
   --toggle-border: #2a2d34;
   --toggle-circle: #f5f5f7;
   
-  --basket-bg: rgba(28,28,30,0.85);
-  --basket-border: rgba(255,255,255,0.12);
+  --basket-bg: rgba(24, 27, 33, 0.9);
+  --basket-border: rgba(255, 255, 255, 0.08);
   --basket-text: var(--text-main);
-  --basket-button-bg: rgba(255,255,255,0.05);
+  --basket-button-bg: var(--bg-card-top);
   --basket-button-text: #ffffff;
 }
 
@@ -1138,7 +1139,7 @@ html[data-theme="dark"] .doc-card:hover {
 }
 
 .doc-name {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 500;
     color: var(--text-main);
 }
