@@ -125,18 +125,17 @@ function updateBasketUI() {
         return;
     }
 
+    basketCount.innerText = basket.length;
+    if (fabCount) fabCount.innerText = basket.length;
+
     if (isMinimized) {
         basketUI.style.display = 'none';
-        if (fabIcon) {
-            fabIcon.style.display = 'flex';
-            if (fabCount) fabCount.innerText = basket.length;
-        }
+        if (fabIcon) fabIcon.style.display = 'flex';
     } else {
         basketUI.style.display = 'block';
         if (fabIcon) fabIcon.style.display = 'none';
     }
 
-    basketCount.innerText = basket.length;
     previewList.innerHTML = basket.map((item, index) => `
         <div class="basket-item">
             <span>${item.name}</span>
