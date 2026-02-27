@@ -641,10 +641,10 @@ html[data-theme="dark"] .card-title {
 .btn-clear {
     background: transparent;
     border: none;
-    color: #ff453a; 
+    color: var(--accent-red);
     font-size: 12px;
     cursor: pointer;
-    font-weight: 500;
+    font-weight: 550;
 }
 
 .basket-items {
@@ -1002,7 +1002,7 @@ section:last-child { border-bottom: none; }
 }
 
 .info h3 {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
     margin-bottom: 4px;
 }
@@ -1166,9 +1166,9 @@ html[data-theme="dark"] #faq details {
 }
 
 #faq summary {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
-    padding: 14px 18px;
+    padding: 15px 20px;
     cursor: pointer;
     list-style: none;
     display: flex;
@@ -1200,7 +1200,7 @@ html[data-theme="dark"] #faq summary:hover {
 
 .faq-content {
     padding: 0 18px 14px;
-    font-size: 14px;
+    font-size: 16px;
     color: var(--text-gray);
     line-height: 1.6;
     display: flex;

@@ -174,14 +174,32 @@ function copyAllItems() {
     if (basket.length === 0) return;
     let text = basket.map(item => `${item.name}\nดาวน์โหลดติดตั้ง: ${item.url}`).join('\n\n');
     text += "\n\nบริการช่วยเหลือ: https://8baht.com/help";
+    
     navigator.clipboard.writeText(text).then(() => {
         const btn = document.querySelector('.btn-copy-all');
         if (!btn) return;
+
+        // เก็บข้อความและสไตล์เดิมไว้
+        const originalText = btn.innerText;
+        const originalBg = btn.style.background;
+        const originalBorder = btn.style.borderColor;
+        const originalColor = btn.style.color;
+
+        // เปลี่ยนเป็นสีเขียวและเปลี่ยนข้อความ
         btn.innerText = 'คัดลอกสำเร็จ';
-        setTimeout(() => btn.innerText = 'คัดลอกลิ้งก์ทั้งหมด', 2000);
+        btn.style.background = 'var(--accent-green)';
+        btn.style.borderColor = 'var(--accent-green)';
+        btn.style.color = '#ffffff';
+
+        setTimeout(() => {
+            // คืนค่าเดิม
+            btn.innerText = originalText;
+            btn.style.background = originalBg;
+            btn.style.borderColor = originalBorder;
+            btn.style.color = originalColor;
+        }, 2000);
     });
 }
-
 
 /***********************
  COPY BUTTON GLOBAL HANDLER
@@ -294,3 +312,67 @@ document.addEventListener('click', (e) => {
         window.open(link, '_blank');
     }
 });
+
+console.log('theme-manager.js loaded');
+
+class ThemeManager {
+    constructor() {
+        this.storageKey = '8baht_theme';
+        this.themeAttribute = 'data-theme';
+        this.init();
+    }
+
+    init() {
+        console.log('ThemeManager initializing');
+        const savedTheme = localStorage.getItem(this.storageKey);
+        const systemTheme = this.getSystemTheme();
+        const theme = savedTheme || systemTheme;
+
+        this.setTheme(theme, false);
+        this.bindToggle();
+        this.watchSystemTheme();
+    }
+
+    getSystemTheme() {
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    setTheme(theme) {
+        document.documentElement.setAttribute(this.themeAttribute, theme);
+        localStorage.setItem(this.storageKey, theme);
+
+        // Sync UI toggle
+        const toggle = document.getElementById('theme-toggle-switch');
+        if (toggle) {
+            toggle.classList.toggle('active', theme === 'dark');
+        }
+    }
+
+    toggleTheme() {
+        const current = document.documentElement.getAttribute(this.themeAttribute) || 'light';
+        this.setTheme(current === 'dark' ? 'light' : 'dark');
+    }
+
+    bindToggle() {
+        const toggle = document.getElementById('theme-toggle-switch');
+        if (!toggle) {
+            console.warn('❌ theme-toggle-switch not found');
+            return;
+        }
+
+        toggle.addEventListener('click', (e) => {
+            e.stopPropagation(); // สำคัญ กัน product click hijack
+            this.toggleTheme();
+        });
+    }
+
+    watchSystemTheme() {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem(this.storageKey)) {
+                this.setTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+    }
+}
+
+window.themeManager = new ThemeManager();
