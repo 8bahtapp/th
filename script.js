@@ -114,20 +114,24 @@ function updateBasketUI() {
     const fabIcon = document.getElementById('basket-floating-icon');
     const fabCount = document.getElementById('fab-count');
 
+    // บันทึกข้อมูลลง LocalStorage ทุกครั้งที่มีการเปลี่ยนแปลง
     localStorage.setItem('8baht_basket', JSON.stringify(basket));
     localStorage.setItem('8baht_minimized', JSON.stringify(isMinimized));
 
     if (!basketUI || !basketCount || !previewList) return;
 
+    // ถ้าไม่มีของเลย ให้ซ่อนทั้งหมด
     if (basket.length === 0) {
         basketUI.style.display = 'none';
         if (fabIcon) fabIcon.style.display = 'none';
         return;
     }
 
+    // อัปเดตตัวเลขจำนวนของ (Badge) ทั้งบนตะกร้าใหญ่และปุ่มลอย
     basketCount.innerText = basket.length;
     if (fabCount) fabCount.innerText = basket.length;
 
+    // เลือกการแสดงผล: ถ้าสถานะคือ minimized ให้โชว์ปุ่มลอย ซ่อนตะกร้าใหญ่
     if (isMinimized) {
         basketUI.style.display = 'none';
         if (fabIcon) fabIcon.style.display = 'flex';
@@ -136,6 +140,7 @@ function updateBasketUI() {
         if (fabIcon) fabIcon.style.display = 'none';
     }
 
+    // วาดรายการสินค้าใหม่
     previewList.innerHTML = basket.map((item, index) => `
         <div class="basket-item">
             <span>${item.name}</span>
