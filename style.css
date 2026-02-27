@@ -588,7 +588,7 @@ html[data-theme="dark"] .card-title {
     right: 30px;
     width: 320px;
     z-index: 2000;
-    font-family: 'Inter', 'Noto Sans Thai', sans-serif;
+    font-family: 'Inter', 'Noto Serif Thai', sans-serif;
     animation: slideIn 0.3s ease-out;
 }
 
@@ -1051,6 +1051,7 @@ html[data-theme="dark"] .doc-card {
 .doc-card .btn-copy-icon {
     color: var(--text-gray);
     padding: 8px;
+    border-radius: 6px;
     display: flex;
     align-items: center;
     transition: color 0.2s ease, transform 0.2s ease;
@@ -1074,20 +1075,33 @@ html[data-theme="dark"] .doc-card:hover {
     flex-shrink: 0;
 }
 
-.doc-card .download-btn:hover,
-.doc-card .btn-copy-icon:hover {
+.btn-copy-icon {
+    background: transparent;
+    border: none;
+    padding: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+
+    color: var(--text-gray);
+    
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.btn-copy-icon:hover,
+.download-btn:hover {
     color: var(--accent-blue);
     transform: scale(1.1);
 }
 
-/* Hover การ์ด แต่ไม่ทำงานถ้ากำลัง hover ปุ่ม */
-.doc-card:hover:not(:has(.download-btn:hover)):not(:has(.btn-copy-icon:hover)) {
-    background: var(--bg-main);
-    transform: translateY(-2px);
-}
-
-.doc-card:hover:not(:has(.btn-copy-icon:hover)):not(:has(.download-btn:hover)) .doc-name {
+.btn-copy-icon:hover,
+.download-btn:hover {
     color: var(--accent-blue);
+    background: color-mix(in srgb, var(--text-gray) 12%, transparent);
+    transform: scale(1.1);
 }
 
 .doc-icon {
@@ -1106,11 +1120,27 @@ html[data-theme="dark"] .doc-card:hover {
     object-fit: contain;
 }
 
+.main-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+    text-decoration: none;
+    color: inherit;
+}
+
+.doc-actions {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
 .doc-name {
     font-size: 15px;
     font-weight: 500;
     color: var(--text-main);
-    flex: 1;
 }
 
 .btn-view { display: none !important; }
