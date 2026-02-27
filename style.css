@@ -1143,6 +1143,10 @@ html[data-theme="dark"] .doc-card:hover {
     color: var(--text-main);
 }
 
+.doc-card:hover:not(:has(.download-btn:hover, .btn-copy-icon:hover)) .doc-name {
+    color: var(--accent-blue);
+}
+
 .btn-view { display: none !important; }
 
 #faq details {
