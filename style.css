@@ -232,7 +232,7 @@ html[data-theme="dark"] .main-header {
 }
 
 html[data-theme="dark"] .card {
-    background: #2a2a2c;
+    background: var(--bg-card);
     border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -349,7 +349,7 @@ html[data-theme="dark"] .card-title {
         max-height: calc(100vh - 80px); 
         overflow-y: auto;
         
-        background: rgba(255, 255, 255, 0.96);
+        background: var(--bg-card);
         backdrop-filter: saturate(180%) blur(20px);
         -webkit-backdrop-filter: saturate(180%) blur(20px);
         flex-direction: column;
@@ -666,7 +666,7 @@ html[data-theme="dark"] .card-title {
 
 .basket-item span {
     font-size: 13px;
-    ccolor: var(--text-main);
+    color: var(--text-main);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1032,7 +1032,7 @@ section:last-child { border-bottom: none; }
     align-items: center;
     gap: 15px;
     padding: 15px 20px;
-    background: #fff;
+    background: var(--bg-card);
     border-radius: 14px;
     border: 1px solid rgba(0,0,0,0.1);
     transition: all 0.3s ease;
@@ -1046,13 +1046,48 @@ html[data-theme="dark"] .doc-card {
     color: var(--text-main);
 }
 
-.doc-card:hover {
-    background: var(--bg-main);
-    transform: translateY(-2px);
+/* icon wrapper */
+.doc-card .download-btn,
+.doc-card .btn-copy-icon {
+    color: var(--text-gray);
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
 html[data-theme="dark"] .doc-card:hover {
     background: var(--bg-secondary);
+}
+
+.btn-copy-icon {
+    background: transparent;
+    border: none;
+    padding: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #52525b;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.doc-card .download-btn:hover,
+.doc-card .btn-copy-icon:hover {
+    color: var(--accent-blue);
+    transform: scale(1.1);
+}
+
+/* Hover การ์ด แต่ไม่ทำงานถ้ากำลัง hover ปุ่ม */
+.doc-card:hover:not(:has(.download-btn:hover)):not(:has(.btn-copy-icon:hover)) {
+    background: var(--bg-main);
+    transform: translateY(-2px);
+}
+
+.doc-card:hover:not(:has(.btn-copy-icon:hover)):not(:has(.download-btn:hover)) .doc-name {
+    color: var(--accent-blue);
 }
 
 .doc-icon {
@@ -1144,21 +1179,6 @@ html[data-theme="dark"] #faq summary:hover {
     margin-top: 10px;
 }
 
-.btn-copy-icon {
-    background: #f4f4f5;
-    border: none;
-    padding: 6px;
-    border-radius: 6px;
-    cursor: pointer;
-    color: #52525b;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-.btn-copy-icon:hover { background: #e4e4e7; color: #18181b; }
-
 #copy-toast {
     position: fixed;
     bottom: 30px;
@@ -1188,10 +1208,10 @@ html[data-theme="dark"] #faq summary:hover {
         position: sticky;
         top: 48px;
         z-index: 500;
-        background: rgba(255,255,255,0.95);
+        background: var(--bg-header);
         backdrop-filter: blur(15px);
         -webkit-backdrop-filter: blur(15px);
-        border-bottom: 1px solid rgba(0,0,0,0.08);
+        border-bottom: 1px solid var(--border-color);
     }
 
     .back-link {
@@ -1218,7 +1238,7 @@ html[data-theme="dark"] #faq summary:hover {
         padding: 8px 18px !important;
         font-size: 13px;
         border-radius: 12px;
-        background: #f2f2f7;
+        background: var(--bg-secondary);
         box-shadow: none;
         border: none;
         display: inline-flex;
@@ -1227,7 +1247,7 @@ html[data-theme="dark"] #faq summary:hover {
 
     .nav-item.active {
         background: var(--accent-blue);
-        color: white !important;
+        color: #ffffff;
     }
 
     .nav-item::before { display: none !important; }
@@ -1339,4 +1359,14 @@ html[data-theme="dark"] .main-header::before {
     rgba(255,255,255,0.02)
   );
   pointer-events: none;
+}
+
+/* Force การ์ดหน้าแรกให้ใช้ค่า root (Light) เสมอ */
+html[data-theme="dark"] .home-page .card {
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+html[data-theme="dark"] .home-page .card-title {
+    color: #2c2f33;
 }
