@@ -1,1 +1,95 @@
 
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>8Baht Tools</title>
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/favicon.png">
+    <link rel="stylesheet" href="/th/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="home-page">
+    <header class="main-header">
+        <div class="header-container">
+            <div class="header-left">
+                <button class="mobile-menu-btn" id="mobile-toggle">
+                    <span></span><span></span><span></span>
+                </button>
+
+                <a href="/th/" class="logo-wrapper">
+                    <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/icon-8baht.png" alt="8Baht" class="logo">
+                </a>
+
+                <nav class="desktop-menu" id="main-nav">
+                    <a href="/th/adobe/">Adobe</a>
+                    <a href="/th/autodesk/">Autodesk</a>
+                    <a href="/th/sketchup/">SketchUp</a>
+                    <a href="/th/rhino/">Rhino</a>
+                    <a href="/th/bimbundle/">BIM Bundle</a>
+                    <a href="/th/corona/">Corona</a>
+                    <a href="/th/enscape/">Enscape</a>
+                    <a href="/th/vray/">V-Ray</a>
+                    <a href="/th/d5/">D5</a>
+                    <a href="/th/lumion/">Lumion</a>
+                    <a href="/th/foxit/">Foxit</a>
+                    <a href="/th/pdfelement/">PDFelement</a>
+                    <a href="/th/microsoft/">Microsoft</a>
+                    <a href="/th/gstarcad/">GstarCAD</a>
+                    <a href="/th/other/">อื่นๆ</a>
+                </nav>
+            </div>
+
+            <div class="header-right">
+                <div class="toggle-container">
+                  <button class="toggle-button" id="theme-toggle-switch">
+                    <span class="toggle-circle"></span>
+                  </button>
+                </div>
+                <a href="https://8baht.com/help" class="btn-ticket" target="_blank">Open Ticket</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="menu-overlay" id="menu-overlay"></div>
+
+    <section class="hero">
+        <div class="container">
+            <h1>8Baht Tools</h1>
+        </div>
+    </section>
+
+    <div id="copy-basket-ui" class="basket-container" style="display: none;">
+        <div class="basket-card">
+            <div class="basket-header">
+                <div class="basket-title">
+                    <h4>รายการที่เลือก (<span id="basket-count">0</span>)</h4>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <button class="btn-clear" onclick="clearBasket()">ล้างทั้งหมด</button>
+                    <button class="btn-minimize" onclick="toggleBasketUI(false)" style="background:none; border:none; cursor:pointer; color:var(--text-gray); font-size:18px;">▼</button>
+                </div>
+            </div>
+            <div id="preview-list" class="basket-items"></div>
+            <div class="basket-footer">
+                <button onclick="copyAllItems()" class="btn-copy-all">คัดลอกทั้งหมด</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="basket-floating-icon" class="basket-fab" style="display: none;" onclick="toggleBasketUI(true)">
+        <div class="fab-badge" id="fab-count">0</div>
+        <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/favicon.png" alt="Basket">
+    </div>
+
+    <div id="copy-toast" class="toast-hidden">คัดลอกสำเร็จ</div>
+
+    <footer class="main-footer">
+        <p>Copyright © 2026 8Baht Support. All rights reserved.</p>
+    </footer>
+
+    <script src="/th/theme-manager.js"></script>
+    <script src="/th/script.js"></script>
+</body>
+</html>
