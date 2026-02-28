@@ -56,7 +56,7 @@ function initPinSystem() {
                 </div>
                 <div class="pin-grid">
                     ${[1,2,3,4,5,6,7,8,9].map(n => `
-                        <button class="pin-btn" onclick="pressPin('${n}')">${n}</button>
+                        <button class="pin-btn" style="color: #ffffff;" onclick="pressPin('${n}')">${n}</button>
                     `).join('')}
                     <button class="pin-btn special" style="color: #ffffff;" onclick="clearPin()">Clear</button>
                     <button class="pin-btn" style="color: #ffffff;" onclick="pressPin('0')">${0}</button>
