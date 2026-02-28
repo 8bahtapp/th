@@ -23,7 +23,7 @@
                     <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/icon-8baht.png" alt="8Baht" class="logo">
                 </a>
                 <nav class="desktop-menu" id="main-nav">
-                    <a href="/th/adobe/">Adobe</a>
+                    <a href="/th/adobe/" class="active">Adobe</a>
                     <a href="/th/autodesk/">Autodesk</a>
                     <a href="/th/sketchup/">SketchUp</a>
                     <a href="/th/rhino/">Rhino</a>
@@ -261,8 +261,8 @@
             <div style="display: flex; align-items: center; gap: 10px;">
                 <button class="btn-clear" onclick="clearBasket()">ล้างทั้งหมด</button>
     
-                <button class="btn-minimize" onclick="toggleBasketUI(false)" style="background:none; border:none; cursor:pointer; color:#86868b; font-size:18px;">
-                    ▼
+                <button class="btn-minimize" onclick="toggleBasketUI(false)">
+                    ▾
                 </button>
             </div>
         </div>
@@ -282,6 +282,10 @@
     <div id="copy-toast" class="toast-hidden">คัดลอกสำเร็จ!</div>
 
     <footer class="main-footer">
+        <div class="footer-links">
+            <a href="https://8bahtapp.github.io/th/lc/sale">Sale</a>
+            <a href="https://8bahtapp.github.io/th/lc/support">Support</a>
+        </div>
         <p>Copyright © 2026 8Baht Support. All rights reserved.</p>
     </footer>
 
