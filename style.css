@@ -1308,6 +1308,18 @@ html[data-theme="dark"] #faq summary:hover {
 }
 .btn-minimize:hover { background: #e5e5ea; color: var(--text-main); }
 
+@keyframes fab-bounce {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.3) rotate(-10deg); }
+    50% { transform: scale(0.9) rotate(5deg); }
+    70% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.fab-animate {
+    animation: fab-bounce 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
 .basket-fab {
     position: fixed;
     bottom: 30px;
