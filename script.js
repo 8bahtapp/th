@@ -320,6 +320,7 @@ document.addEventListener('click', (e) => {
         window.open(link, '_blank');
     }
 });
+
 /***********************
  GOOGLE LOGIN & ACCESS CONTROL
 ************************/
@@ -360,3 +361,4 @@ async function handleCredentialResponse(response) {
         alert('เกิดข้อผิดพลาดในการเชื่อมต่อฐานข้อมูล');
     }
 }
+
