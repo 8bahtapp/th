@@ -320,3 +320,40 @@ document.addEventListener('click', (e) => {
         window.open(link, '_blank');
     }
 });
+
+// 1. ฟังก์ชันถอดรหัสข้อมูลจาก Google
+function parseJwt(token) {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+    return JSON.parse(jsonPayload);
+}
+
+// 2. ฟังก์ชันจัดการเมื่อ Login สำเร็จ
+async function handleCredentialResponse(response) {
+    const responsePayload = parseJwt(response.credential);
+    const email = responsePayload.email;
+    
+    // URL Apps Script ที่คุณสร้างไว้
+    const scriptUrl = 'https://script.google.com/macros/s/AKfycbxK5lJ1Mk_2IaFBdixCRTs-qXEao3V8wMUjKh8988UC2uGRVVDVnqcdmgyERb7q8qJ4qw/exec';
+
+    try {
+        const res = await fetch(`${scriptUrl}?email=${email}`);
+        const data = await res.json();
+
+        if (data.role === 'support') {
+            // Support เข้าได้ทุกหน้า (ในที่นี้ส่งไปหน้า support ก่อน)
+            window.location.href = 'https://8bahtapp.github.io/th/lc/support';
+        } 
+        else if (data.role === 'sale') {
+            window.location.href = 'https://8bahtapp.github.io/th/lc/sale';
+        } 
+        else {
+            alert('ขออภัย อีเมล ' + email + ' ไม่มีสิทธิ์เข้าถึง');
+        }
+    } catch (error) {
+        alert('ระบบฐานข้อมูลขัดข้อง กรุณาลองใหม่');
+    }
+}
