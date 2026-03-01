@@ -409,10 +409,16 @@ html[data-theme="dark"] .card-title {
 .footer-links {
     margin-bottom: 12px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row; /* เปลี่ยนเป็นแนวนอน */
     justify-content: center;
     align-items: center;
-    gap: 6px;
+    gap: 15px;
+}
+
+.footer-divider {
+    color: var(--text-gray);
+    font-size: 12px;
+    user-select: none;
 }
 
 .footer-links a {
@@ -1438,9 +1444,9 @@ html[data-theme="dark"] .main-header::before {
 
 /* ปรับแต่งตัวอักษร Email */
 .user-email {
-    font-size: 10px; /* ขนาดเล็กลงเพื่อให้ไม่แย่งซีน */
+    font-size: 11px; /* ขนาดเล็กลงเพื่อให้ไม่แย่งซีน */
     color: var(--text-gray);
-    font-weight: 400;
+    font-weight: 500;
     margin-bottom: 2px;
 }
 
