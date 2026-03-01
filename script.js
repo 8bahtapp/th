@@ -336,7 +336,7 @@ function parseJwt(token) {
 
 // --- ส่วนที่ 2: ฟังก์ชัน Logout ---
 function logout() {
-    localStorage.clear(); // ล้างข้อมูลการเข้าสู่ระบบทั้งหมด
+    sessionStorage.clear(); // ล้างข้อมูลการเข้าสู่ระบบทั้งหมด
     window.location.href = 'https://8bahtapp.github.io/th/'; // กลับไปหน้าแรก
 }
 
@@ -351,9 +351,9 @@ async function handleCredentialResponse(response) {
         const data = await res.json();
 
         if (data.role === 'support' || data.role === 'sale') {
-            // เก็บข้อมูลลง localStorage
-            localStorage.setItem('userEmail', email);
-            localStorage.setItem('userRole', data.role);
+            // เก็บข้อมูลลง sessionStorage
+            sessionStorage.setItem('userEmail', email);
+            sessionStorage.setItem('userRole', data.role);
             
             // นำทางไปตามสิทธิ์
             if (data.role === 'support') {
@@ -372,13 +372,12 @@ async function handleCredentialResponse(response) {
     }
 }
 
-// --- ส่วนที่ 4: ฟังก์ชันจัดการการแสดงผล Profile เมื่อโหลดหน้า (สำหรับหน้าภายใน) ---
+// --- ส่วนที่ 4: การแสดงผล Profile DOMContentLoaded ---
 window.addEventListener('DOMContentLoaded', () => {
-    const email = localStorage.getItem('userEmail');
+    const email = sessionStorage.getItem('userEmail'); // เปลี่ยนเป็น sessionStorage
     const userProfileDiv = document.getElementById('user-profile');
     const displayEmailSpan = document.getElementById('display-email');
 
-    // ถ้ามีข้อมูลอีเมลและมี Element รองรับในหน้าเว็บ ให้แสดงผล
     if (email && userProfileDiv && displayEmailSpan) {
         userProfileDiv.style.display = 'flex';
         displayEmailSpan.textContent = email;
