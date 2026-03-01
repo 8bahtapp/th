@@ -7,7 +7,7 @@
 
     <script>
         const role = localStorage.getItem('userRole');
-                const currentUrl = window.location.href;
+        const currentUrl = window.location.href;
     
         if (!role) {
             window.location.href = 'https://8bahtapp.github.io/th/lc'; 
@@ -63,11 +63,6 @@
 
                 <div class="auth-action-wrapper">
                     <a href="https://8baht.com/help" class="btn-ticket" target="_blank">Open Ticket</a>
-
-                    <div id="user-profile" class="user-profile-dropdown" style="display: none;">
-            <span id="display-email" class="user-email"></span>
-                        <button id="logout-btn" class="btn-logout">ออกจากระบบ</button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -78,6 +73,10 @@
     <section class="hero">
         <div class="container">
             <h1>Support Tools</h1>
+            <div id="user-profile" class="user-profile-dropdown" style="display: none;">
+                <span id="display-email" class="user-email"></span>
+                <button id="logout-btn" class="btn-logout">ออกจากระบบ</button>
+            </div>
         </div>
     </section>
 
@@ -120,7 +119,6 @@
         </body>
 
     </html>
-
 
 
 
