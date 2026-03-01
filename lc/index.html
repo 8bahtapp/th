@@ -104,8 +104,8 @@
                 const data = await res.json();
 
                 if (data.role === 'support' || data.role === 'sale') {
-                    sessionStorage.setItem('userEmail', email);
-                    sessionStorage.setItem('userRole', data.role);
+                    localStorage.setItem('userEmail', email);
+                    localStorage.setItem('userRole', data.role);
                     
                     if (data.role === 'support') {
                         window.location.href = 'https://8bahtapp.github.io/th/lc/support';
