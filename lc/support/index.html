@@ -6,15 +6,15 @@
     <title>8Baht Tools | Support</title>
 
     <script>
-        // 1. ตรวจสอบสิทธิ์ทันที (ต้องทำก่อนโหลดอย่างอื่นเพื่อความปลอดภัย)
         const role = sessionStorage.getItem('userRole');
-        const currentUrl = window.location.href;
-
+    
+    // ถ้าไม่มี Role (ไม่ได้ Login) ให้ส่งไปหน้า Login
         if (!role) {
-            alert('กรุณาเข้าสู่ระบบก่อนใช้งาน');
-            window.location.href = 'https://8bahtapp.github.io/th/lc/';
+            // ลบ alert ออกก็ได้ถ้าไม่อยากให้เด้งขัดจังหวะ
+            window.location.href = 'https://8bahtapp.github.io/th/lc/'; 
         } 
-        else if (currentUrl.includes('/support') && role !== 'support') {
+        // ถ้ามี Role แล้ว แต่เข้าหน้าไม่ตรงกับสิทธิ์
+        else if (window.location.href.includes('/support') && role !== 'support') {
             alert('สิทธิ์ของคุณไม่สามารถเข้าถึงหน้า Support ได้');
             window.location.href = 'https://8bahtapp.github.io/th/lc/sale';
         }
