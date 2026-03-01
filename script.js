@@ -372,15 +372,4 @@ async function handleCredentialResponse(response) {
     }
 }
 
-// --- ส่วนที่ 4: ตรวจสอบสิทธิ์เข้าใช้งาน (แทนการแสดงผล Profile) ---
-window.addEventListener('DOMContentLoaded', () => {
-    const email = sessionStorage.getItem('userEmail');
-    const role = sessionStorage.getItem('userRole');
-
-    // ถ้าไม่มีข้อมูลใน Session แปลว่าไม่ได้ล็อกอินมา หรือปิด Tab แล้วเปิดใหม่
-    if (!email || !role) {
-        console.warn('Unauthorized access: No session found.');
-        window.location.href = 'https://8bahtapp.github.io/th/'; // ส่งกลับหน้า Login
-    }
-});
 
