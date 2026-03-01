@@ -371,5 +371,13 @@ async function handleCredentialResponse(response) {
         alert('เกิดข้อผิดพลาดในการเชื่อมต่อฐานข้อมูล กรุณาลองใหม่');
     }
 }
+window.addEventListener('DOMContentLoaded', () => {
+    const email = sessionStorage.getItem('userEmail');
+    const role = sessionStorage.getItem('userRole');
 
-
+    // ถ้าไม่มี Email หรือ Role (แปลว่ายังไม่ได้ล็อกอิน) ให้เตะกลับหน้าแรกทันที
+    if (!email || !role) {
+        alert('กรุณาเข้าสู่ระบบก่อนใช้งาน');
+        window.location.href = 'https://8bahtapp.github.io/th/';
+    }
+});
