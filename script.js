@@ -399,8 +399,4 @@ window.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    // 4. รันระบบ PIN (สำคัญมาก: ห้ามลบคำสั่งนี้ เพราะจะทำให้กดปุ่มตัวเลขไม่ได้)
-    if (typeof initPinSystem === 'function') {
-        initPinSystem();
-    }
 });
