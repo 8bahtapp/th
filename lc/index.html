@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sign in | 8Baht</title>
+    <title>Sign in</title>
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/favicon.png">
     <link rel="stylesheet" href="/th/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -52,24 +52,27 @@
         </div>
     </header>
 
-    <main style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 70vh; padding: 20px;">
-        <div style="text-align: center; background: rgba(255,255,255,0.05); padding: 40px; border-radius: 15px; border: 1px solid rgba(128,128,128,0.2);">
-            <h2 style="margin-bottom: 20px;">Internal System Login</h2>
-            <p style="margin-bottom: 30px; opacity: 0.8;">กรุณาเข้าสู่ระบบ</p>
-            
-            <div id="g_id_onload"
-                 data-client_id="61210469646-gjf7ajhrd4p3hr981ofnen7u3bcd8m8n.apps.googleusercontent.com"
-                 data-callback="handleCredentialResponse">
-            </div>
-            <div class="g_id_signin"
-                 data-type="standard"
-                 data-size="large"
-                 data-theme="outline"
-                 data-text="signin_with"
-                 data-shape="rectangular"
+    <main style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 20px;">
+    
+        <div style="text-align: center; background: rgba(255,255,255,0.05); padding: 40px; border-radius: 15px; border: 1px solid rgba(128,128,128,0.2); width: 100%; max-width: 400px;">
+            <h2 style="margin-bottom: 20px; font-family: sans-serif;">Sign in</h2>
+        
+            <div style="display: flex; justify-content: center;">
+                <div id="g_id_onload"
+                     data-client_id="61210469646-gjf7ajhrd4p3hr981ofnen7u3bcd8m8n.apps.googleusercontent.com"
+                     data-callback="handleCredentialResponse">
+                </div>
+                <div class="g_id_signin"
+                     data-type="standard"
+                     data-size="large"
+                     data-theme="outline"
+                     data-text="signin_with"
+                     data-shape="pill" 
                  data-logo_alignment="left">
+                </div>
             </div>
         </div>
+
     </main>
 
     <footer class="main-footer">
@@ -80,7 +83,6 @@
     <script src="../script.js"></script>
 
     <script>
-        // 3. ฟังก์ชันแกะรหัส Token จาก Google
         function parseJwt(token) {
             var base64Url = token.split('.')[1];
             var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
@@ -90,13 +92,11 @@
             return JSON.parse(jsonPayload);
         }
 
-        // 4. ฟังก์ชัน Login (ที่คุณส่งมา)
         async function handleCredentialResponse(response) {
             const responsePayload = parseJwt(response.credential);
             const email = responsePayload.email;
             const scriptUrl = 'https://script.google.com/macros/s/AKfycbxK5lJ1Mk_2IaFBdixCRTs-qXEao3V8wMUjKh8988UC2uGRVVDVnqcdmgyERb7q8qJ4qw/exec';
 
-            // แสดง Loading เบื้องต้น (ถ้าต้องการ)
             console.log("Checking permissions for:", email);
 
             try {
@@ -104,11 +104,9 @@
                 const data = await res.json();
 
                 if (data.role === 'support' || data.role === 'sale') {
-                    // เก็บข้อมูลลง sessionStorage
                     sessionStorage.setItem('userEmail', email);
                     sessionStorage.setItem('userRole', data.role);
                     
-                    // นำทางไปตามสิทธิ์
                     if (data.role === 'support') {
                         window.location.href = 'https://8bahtapp.github.io/th/lc/support';
                     } else {
