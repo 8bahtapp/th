@@ -1481,7 +1481,7 @@ html[data-theme="dark"] .main-header::before {
 
 /* Force การ์ดหน้าแรกให้ใช้ค่า root (Light) เสมอ */
 html[data-theme="dark"] .home-page .card {
-    background: #f5f5f7;
+    background: #dfe2ed;
     border: 1px solid rgba(0,0,0,0.05);
 }
 
