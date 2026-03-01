@@ -320,3 +320,67 @@ document.addEventListener('click', (e) => {
         window.open(link, '_blank');
     }
 });
+/***********************
+ GOOGLE LOGIN & ACCESS CONTROL
+************************/
+
+// --- ส่วนที่ 1: ฟังก์ชันถอดรหัส Token ---
+function parseJwt(token) {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+    return JSON.parse(jsonPayload);
+}
+
+// --- ส่วนที่ 2: ฟังก์ชัน Logout ---
+function logout() {
+    sessionStorage.clear(); // ล้างข้อมูลการเข้าสู่ระบบทั้งหมด
+    window.location.href = 'https://8bahtapp.github.io/th/'; // กลับไปหน้าแรก
+}
+
+// --- ส่วนที่ 3: ฟังก์ชัน Login (อัปเดตใหม่) ---
+async function handleCredentialResponse(response) {
+    const responsePayload = parseJwt(response.credential);
+    const email = responsePayload.email;
+    const scriptUrl = 'https://script.google.com/macros/s/AKfycbxK5lJ1Mk_2IaFBdixCRTs-qXEao3V8wMUjKh8988UC2uGRVVDVnqcdmgyERb7q8qJ4qw/exec';
+
+    try {
+        const res = await fetch(`${scriptUrl}?email=${encodeURIComponent(email)}`);
+        const data = await res.json();
+
+        if (data.role === 'support' || data.role === 'sale') {
+            // เก็บข้อมูลลง sessionStorage
+            sessionStorage.setItem('userEmail', email);
+            sessionStorage.setItem('userRole', data.role);
+            
+            // นำทางไปตามสิทธิ์
+            if (data.role === 'support') {
+                window.location.href = 'https://8bahtapp.github.io/th/lc/support';
+            } else {
+                window.location.href = 'https://8bahtapp.github.io/th/lc/sale';
+            }
+        } else {
+            // กรณีไม่มีสิทธิ์ (แทนการใช้ alert ถ้าต้องการ)
+            console.warn('Unauthorized access attempt:', email);
+            alert('ขออภัย อีเมล ' + email + ' ไม่มีสิทธิ์เข้าถึงระบบ');
+        }
+    } catch (error) {
+        console.error("Fetch error:", error);
+        alert('เกิดข้อผิดพลาดในการเชื่อมต่อฐานข้อมูล กรุณาลองใหม่');
+    }
+}
+
+// --- ส่วนที่ 4: ฟังก์ชันจัดการการแสดงผล Profile เมื่อโหลดหน้า (สำหรับหน้าภายใน) ---
+window.addEventListener('DOMContentLoaded', () => {
+    const email = sessionStorage.getItem('userEmail');
+    const userProfileDiv = document.getElementById('user-profile');
+    const displayEmailSpan = document.getElementById('display-email');
+
+    // ถ้ามีข้อมูลอีเมลและมี Element รองรับในหน้าเว็บ ให้แสดงผล
+    if (email && userProfileDiv && displayEmailSpan) {
+        userProfileDiv.style.display = 'flex';
+        displayEmailSpan.textContent = email;
+    }
+});
