@@ -372,38 +372,34 @@ async function handleCredentialResponse(response) {
     }
 }
 
-// --- ส่วนที่ 4: ฟังก์ชันจัดการการแสดงผล Profile และระบบ Logout เมื่อโหลดหน้า ---
+// --- ส่วนที่ 4: รวมฟังก์ชันจัดการหน้าเว็บ (Profile + Logout + PIN System) ---
 window.addEventListener('DOMContentLoaded', () => {
+    // 1. ดึงข้อมูลจาก Storage
     const email = localStorage.getItem('userEmail');
     const userProfileDiv = document.getElementById('user-profile');
     const displayEmailSpan = document.getElementById('display-email');
     const logoutBtn = document.getElementById('logout-btn');
 
-    // 1. แสดงผล Email และ Profile (โค้ดส่วนเดิมของคุณ)
+    // 2. แสดงผล Email (ถ้าล็อกอินแล้ว)
     if (email && userProfileDiv && displayEmailSpan) {
         displayEmailSpan.textContent = email;
         userProfileDiv.style.display = 'flex';
     }
 
-    // 2. จัดการการคลิกปุ่ม Logout (ส่วนที่เพิ่มใหม่)
+    // 3. ฟังก์ชัน Logout (แก้ไขให้ทำงานร่วมกับปุ่มได้)
     if (logoutBtn) {
-        logoutBtn.addEventListener('click', (e) => {
+        logoutBtn.onclick = (e) => {
             e.preventDefault();
-            
-            // ยืนยันก่อนออกจากระบบ
             if (confirm('คุณต้องการออกจากระบบใช่หรือไม่?')) {
-                // ล้างข้อมูลการล็อกอิน
                 localStorage.removeItem('userEmail');
                 localStorage.removeItem('userRole');
                 localStorage.removeItem('auth_time_8baht');
-                
-                // ส่งกลับไปหน้าหลัก (Root ของเว็บ)
                 window.location.href = 'https://8bahtapp.github.io/th/';
             }
-        });
+        };
     }
 
-    // 3. เรียกใช้งานระบบ PIN (ถ้ามีฟังก์ชันนี้อยู่ด้านบน)
+    // 4. รันระบบ PIN (สำคัญมาก: ห้ามลบคำสั่งนี้ เพราะจะทำให้กดปุ่มตัวเลขไม่ได้)
     if (typeof initPinSystem === 'function') {
         initPinSystem();
     }
