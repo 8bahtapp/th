@@ -336,7 +336,7 @@ function parseJwt(token) {
 
 // --- ส่วนที่ 2: ฟังก์ชัน Logout ---
 function logout() {
-    sessionStorage.clear(); // ล้างข้อมูลการเข้าสู่ระบบทั้งหมด
+    localStorage.clear(); // ล้างข้อมูลการเข้าสู่ระบบทั้งหมด
     window.location.href = 'https://8bahtapp.github.io/th/'; // กลับไปหน้าแรก
 }
 
