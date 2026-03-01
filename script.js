@@ -351,9 +351,9 @@ async function handleCredentialResponse(response) {
         const data = await res.json();
 
         if (data.role === 'support' || data.role === 'sale') {
-            // เก็บข้อมูลลง sessionStorage
-            sessionStorage.setItem('userEmail', email);
-            sessionStorage.setItem('userRole', data.role);
+            // เก็บข้อมูลลง localStorage
+            localStorage.setItem('userEmail', email);
+            localStorage.setItem('userRole', data.role);
             
             // นำทางไปตามสิทธิ์
             if (data.role === 'support') {
@@ -374,7 +374,7 @@ async function handleCredentialResponse(response) {
 
 // --- ส่วนที่ 4: ฟังก์ชันจัดการการแสดงผล Profile เมื่อโหลดหน้า (สำหรับหน้าภายใน) ---
 window.addEventListener('DOMContentLoaded', () => {
-    const email = sessionStorage.getItem('userEmail');
+    const email = localStorage.getItem('userEmail');
     const userProfileDiv = document.getElementById('user-profile');
     const displayEmailSpan = document.getElementById('display-email');
 
