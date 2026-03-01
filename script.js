@@ -372,15 +372,39 @@ async function handleCredentialResponse(response) {
     }
 }
 
-// --- ส่วนที่ 4: ฟังก์ชันจัดการการแสดงผล Profile เมื่อโหลดหน้า (สำหรับหน้าภายใน) ---
+// --- ส่วนที่ 4: ฟังก์ชันจัดการการแสดงผล Profile และระบบ Logout เมื่อโหลดหน้า ---
 window.addEventListener('DOMContentLoaded', () => {
     const email = localStorage.getItem('userEmail');
     const userProfileDiv = document.getElementById('user-profile');
     const displayEmailSpan = document.getElementById('display-email');
+    const logoutBtn = document.getElementById('logout-btn');
 
-    // ถ้ามีข้อมูลอีเมลและมี Element รองรับในหน้าเว็บ ให้แสดงผล
+    // 1. แสดงผล Email และ Profile (โค้ดส่วนเดิมของคุณ)
     if (email && userProfileDiv && displayEmailSpan) {
-        userProfileDiv.style.display = 'flex';
         displayEmailSpan.textContent = email;
+        userProfileDiv.style.display = 'flex';
+    }
+
+    // 2. จัดการการคลิกปุ่ม Logout (ส่วนที่เพิ่มใหม่)
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // ยืนยันก่อนออกจากระบบ
+            if (confirm('คุณต้องการออกจากระบบใช่หรือไม่?')) {
+                // ล้างข้อมูลการล็อกอิน
+                localStorage.removeItem('userEmail');
+                localStorage.removeItem('userRole');
+                localStorage.removeItem('auth_time_8baht');
+                
+                // ส่งกลับไปหน้าหลัก (Root ของเว็บ)
+                window.location.href = 'https://8bahtapp.github.io/th/';
+            }
+        });
+    }
+
+    // 3. เรียกใช้งานระบบ PIN (ถ้ามีฟังก์ชันนี้อยู่ด้านบน)
+    if (typeof initPinSystem === 'function') {
+        initPinSystem();
     }
 });
