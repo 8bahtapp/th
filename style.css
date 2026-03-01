@@ -1431,8 +1431,9 @@ html[data-theme="dark"] .main-header::before {
 .user-profile-dropdown {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    padding-top: 4px;
+    align-items: flex-start;
+    padding-top: 15px;
+    gap: 4px;
 }
 
 /* ปรับแต่งตัวอักษร Email */
