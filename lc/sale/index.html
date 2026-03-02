@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Support</title>
+    <title>Sale</title>
 
     <script>
         const role = localStorage.getItem('userRole');
@@ -12,9 +12,9 @@
         if (!role) {
             window.location.href = 'https://8bahtapp.github.io/th/lc'; 
         } 
-        else if (currentUrl.includes('/support') && role !== 'support') {
+        else if (currentUrl.includes('/sale') && role !== 'sale') {
             alert('สิทธิ์ของคุณไม่สามารถเข้าถึง');
-            window.location.href = 'https://8bahtapp.github.io/th/lc/sale';
+            window.location.href = 'https://8bahtapp.github.io/th';
         }
     </script>
     
@@ -72,7 +72,7 @@
 
     <section class="hero">
         <div class="container">
-            <h1>Support Tools</h1>
+            <h1>Sale Tools</h1>
             <div id="user-profile" class="user-profile-dropdown" style="display: none;">
                 <span id="display-email" class="user-email"></span>
                 <button id="logout-btn" class="btn-logout">ออกจากระบบ</button>
