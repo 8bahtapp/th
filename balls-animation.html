@@ -71,116 +71,11 @@
             animation: roll1 12s ease-in-out infinite;
         }
 
-        /* White Ball */
-        .ball.white {
-            width: 24px;
-            height: 24px;
-            background: radial-gradient(circle at 35% 35%, #FFFFFF, #F0F0F0);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), inset -2px -2px 6px rgba(0, 0, 0, 0.1);
-            animation: roll2 11s ease-in-out infinite;
-        }
-
-        /* Yellow Ball */
-        .ball.yellow {
-            width: 22px;
-            height: 22px;
-            background: radial-gradient(circle at 35% 35%, #FFFF99, #FFD700);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15), inset -2px -2px 5px rgba(0, 0, 0, 0.1);
-            animation: roll3 10s ease-in-out infinite;
-        }
-
-        /* Red Ball */
-        .ball.red {
-            width: 22px;
-            height: 22px;
-            background: radial-gradient(circle at 35% 35%, #FF6B6B, #CC0000);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15), inset -2px -2px 5px rgba(0, 0, 0, 0.1);
-            animation: roll4 9.5s ease-in-out infinite;
-        }
-
-        /* Blue Ball */
-        .ball.blue {
-            width: 22px;
-            height: 22px;
-            background: radial-gradient(circle at 35% 35%, #6B9BFF, #0040CC);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15), inset -2px -2px 5px rgba(0, 0, 0, 0.1);
-            animation: roll5 9s ease-in-out infinite;
-        }
-
-        /* Pink Ball */
-        .ball.pink {
-            width: 20px;
-            height: 20px;
-            background: radial-gradient(circle at 35% 35%, #FF99CC, #FF1493);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15), inset -2px -2px 5px rgba(0, 0, 0, 0.1);
-            animation: roll6 8.5s ease-in-out infinite;
-        }
-
-        /* Black Ball */
-        .ball.black {
-            width: 22px;
-            height: 22px;
-            background: radial-gradient(circle at 35% 35%, #333333, #000000);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(255, 255, 255, 0.1);
-            animation: roll7 8s ease-in-out infinite;
-        }
-
-        /* Brown Ball */
-        .ball.brown {
-            width: 20px;
-            height: 20px;
-            background: radial-gradient(circle at 35% 35%, #D2691E, #8B4513);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15), inset -2px -2px 5px rgba(0, 0, 0, 0.1);
-            animation: roll8 7.5s ease-in-out infinite;
-        }
-
         /* Animations */
         @keyframes roll1 {
             0% { left: 0; transform: rotateZ(0deg); }
             50% { left: calc(100% - 28px); transform: rotateZ(540deg); }
             100% { left: 0; transform: rotateZ(1080deg); }
-        }
-
-        @keyframes roll2 {
-            0% { left: 35px; transform: rotateZ(0deg); }
-            50% { left: calc(100% - 59px); transform: rotateZ(540deg); }
-            100% { left: 35px; transform: rotateZ(1080deg); }
-        }
-
-        @keyframes roll3 {
-            0% { left: 70px; transform: rotateZ(0deg); }
-            50% { left: calc(100% - 92px); transform: rotateZ(540deg); }
-            100% { left: 70px; transform: rotateZ(1080deg); }
-        }
-
-        @keyframes roll4 {
-            0% { left: 105px; transform: rotateZ(0deg); }
-            50% { left: calc(100% - 127px); transform: rotateZ(540deg); }
-            100% { left: 105px; transform: rotateZ(1080deg); }
-        }
-
-        @keyframes roll5 {
-            0% { left: 140px; transform: rotateZ(0deg); }
-            50% { left: calc(100% - 162px); transform: rotateZ(540deg); }
-            100% { left: 140px; transform: rotateZ(1080deg); }
-        }
-
-        @keyframes roll6 {
-            0% { left: 175px; transform: rotateZ(0deg); }
-            50% { left: calc(100% - 195px); transform: rotateZ(540deg); }
-            100% { left: 175px; transform: rotateZ(1080deg); }
-        }
-
-        @keyframes roll7 {
-            0% { left: 210px; transform: rotateZ(0deg); }
-            50% { left: calc(100% - 232px); transform: rotateZ(540deg); }
-            100% { left: 210px; transform: rotateZ(1080deg); }
-        }
-
-        @keyframes roll8 {
-            0% { left: 245px; transform: rotateZ(0deg); }
-            50% { left: calc(100% - 265px); transform: rotateZ(540deg); }
-            100% { left: 245px; transform: rotateZ(1080deg); }
         }
 
         /* Liquid effect shadow - subtle */
@@ -217,27 +112,6 @@
 
         <!-- Green Ball with Logo -->
         <div class="ball green"></div>
-
-        <!-- White Ball -->
-        <div class="ball white"></div>
-
-        <!-- Yellow Ball -->
-        <div class="ball yellow"></div>
-
-        <!-- Red Ball -->
-        <div class="ball red"></div>
-
-        <!-- Blue Ball -->
-        <div class="ball blue"></div>
-
-        <!-- Pink Ball -->
-        <div class="ball pink"></div>
-
-        <!-- Black Ball -->
-        <div class="ball black"></div>
-
-        <!-- Brown Ball -->
-        <div class="ball brown"></div>
     </div>
 </body>
 </html>
