@@ -12,9 +12,9 @@
         if (!role) {
             window.location.href = 'https://8bahtapp.github.io/th/lc'; 
         } 
-        else if (currentUrl.includes('/sale') && role !== 'sale') {
+        else if (currentUrl.includes('/sale') && (role !== 'sale' && role !== 'support')) {
             alert('สิทธิ์ของคุณไม่สามารถเข้าถึง');
-            window.location.href = 'https://8bahtapp.github.io/th';
+            window.location.href = 'https://8bahtapp.github.io/th/lc';
         }
     </script>
     
