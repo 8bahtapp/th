@@ -197,7 +197,7 @@ function toggleBasketUI(showFull) {
 }
 
 function addToBasket(name, url) {
-    if (!basket.find(item => item.url === url)) {
+    if (!basket.find(item => item.name === name && item.url === url)) {
         basket.push({ name, url });
                 updateBasketUI();
 
@@ -345,27 +345,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-document.addEventListener('click', (e) => {
-    const wrapper = e.target.closest('.js-product-link');
-    if (!wrapper) return;
-
-    const card = wrapper.closest('.product-card');
-    const link = card?.dataset.link;
-    if (link) {
-        window.open(link, '_blank');
-    }
-});
-
-document.addEventListener('click', (e) => {
-    const wrapper = e.target.closest('.js-product-link');
-    if (!wrapper) return;
-
-    const card = wrapper.closest('.product-card');
-    const link = card?.dataset.link;
-    if (link) {
-        window.open(link, '_blank');
-    }
-});
 /***********************
  GOOGLE LOGIN & ACCESS CONTROL
 ************************/
