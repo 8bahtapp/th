@@ -59,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-
 /***********************
  PRODUCT CARD CLICK (IMAGE + TITLE → OPEN LINK)
 ************************/
@@ -411,7 +410,7 @@ async function handleCredentialResponse(response) {
         } else {
             // กรณีไม่มีสิทธิ์ (แทนการใช้ alert ถ้าต้องการ)
             console.warn('Unauthorized access attempt:', email);
-            alert('ขออภัย ' + email + ' ไม่สามารถเข้าถึง');
+            alert('ขออภัย อีเมล ' + email + ' ไม่มีสิทธิ์เข้าถึงระบบ');
         }
     } catch (error) {
         console.error("Fetch error:", error);
