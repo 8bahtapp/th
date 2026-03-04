@@ -12,6 +12,53 @@ const showToast = () => {
     }, 2000);
 };
 
+/***********************
+ INFO ICON TOOLTIP INTERACTION
+************************/
+document.addEventListener('DOMContentLoaded', () => {
+    const infoIcons = document.querySelectorAll('.info-icon');
+    
+    infoIcons.forEach(icon => {
+        const tooltip = icon.nextElementSibling;
+        if (!tooltip || !tooltip.classList.contains('tooltip')) return;
+
+        // ป้องกันการคลิกบน info icon ให้ส่งผลต่อการเปิดลิงก์
+        icon.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        // Show tooltip on focus
+        icon.addEventListener('focus', () => {
+            tooltip.style.opacity = '1';
+            tooltip.style.visibility = 'visible';
+            tooltip.style.transform = 'translateY(0)';
+        });
+
+        // Hide tooltip on blur
+        icon.addEventListener('blur', (e) => {
+            // Check if the focus moved to the tooltip
+            if (e.relatedTarget !== tooltip) {
+                tooltip.style.opacity = '0';
+                tooltip.style.visibility = 'hidden';
+                tooltip.style.transform = 'translateY(-8px)';
+            }
+        });
+
+        // Keep tooltip visible when hovering over it
+        tooltip.addEventListener('mouseenter', () => {
+            tooltip.style.opacity = '1';
+            tooltip.style.visibility = 'visible';
+            tooltip.style.transform = 'translateY(0)';
+        });
+
+        tooltip.addEventListener('mouseleave', () => {
+            tooltip.style.opacity = '0';
+            tooltip.style.visibility = 'hidden';
+            tooltip.style.transform = 'translateY(-8px)';
+        });
+    });
+});
+
 
 /***********************
  PRODUCT CARD CLICK (IMAGE + TITLE → OPEN LINK)
@@ -364,7 +411,7 @@ async function handleCredentialResponse(response) {
         } else {
             // กรณีไม่มีสิทธิ์ (แทนการใช้ alert ถ้าต้องการ)
             console.warn('Unauthorized access attempt:', email);
-            alert('ขออภัย อีเมล ' + email + ' ไม่มีสิทธิ์เข้าถึงระบบ');
+            alert('ขออภัย ' + email + ' ไม่สามารถเข้าถึง');
         }
     } catch (error) {
         console.error("Fetch error:", error);

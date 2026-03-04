@@ -1242,6 +1242,40 @@ html[data-theme="dark"] #faq summary:hover {
     gap: 15px;
 }
 
+.faq-text {
+    flex: 1;
+}
+
+.faq-text p {
+    margin: 0 0 12px 0;
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.6;
+}
+
+.faq-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* FAQ Link styling */
+.faq-link {
+    color: var(--accent-blue);
+    text-decoration: underline;
+    font-weight: 400;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.faq-link:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+html[data-theme="dark"] .faq-link {
+    color: #0a84ff;
+    text-decoration: underline;
+}
+
 .faq-copy {
     margin-top: 10px;
 }
@@ -1476,6 +1510,172 @@ html[data-theme="dark"] .main-header::before {
     }
     .user-profile-dropdown {
         align-items: center;
+    }
+}
+
+.card-header-with-info {
+    position: relative;
+    width: 100%;
+}
+
+.product-link-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.info-icon-wrapper {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 100;
+}
+
+.info-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+    color: var(--text-gray);
+    cursor: pointer;
+    transition: color var(--transition-fast);
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.info-icon:hover,
+.info-icon:focus {
+    color: var(--text-main);
+    outline: none;
+    background-color: transparent;
+}
+
+.info-icon svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+
+/* Tooltip Styles */
+.tooltip {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 320px;
+    max-width: 360px;
+    padding: 14px 16px;
+    background-color: var(--bg-card);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.6;
+    white-space: normal;
+    word-break: break-word;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: all var(--transition-fast);
+    z-index: 1001;
+    box-shadow: var(--shadow-md);
+}
+
+.tooltip p {
+    margin: 0;
+    font-weight: 400;
+    color: var(--text-main);
+}
+
+/* Tooltip Arrow */
+.tooltip::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    right: 16px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--bg-card);
+    border-radius: 1px;
+    transform: rotate(45deg);
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-fast);
+    border-top: 1px solid var(--border-color);
+    border-left: 1px solid var(--border-color);
+}
+
+/* Show tooltip on hover */
+.info-icon:hover ~ .tooltip,
+.info-icon:focus ~ .tooltip,
+.tooltip:hover {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.info-icon:hover ~ .tooltip::before,
+.info-icon:focus ~ .tooltip::before,
+.tooltip:hover::before {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Dark Mode Tooltip Styles */
+html[data-theme="dark"] .tooltip {
+    background-color: var(--bg-card);
+    color: var(--text-main);
+    border-color: var(--border-color);
+}
+
+html[data-theme="dark"] .tooltip p {
+    color: var(--text-main);
+}
+
+html[data-theme="dark"] .tooltip::before {
+    background-color: var(--bg-card);
+    border-top-color: var(--border-color);
+    border-left-color: var(--border-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .info-icon-wrapper {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+    }
+
+    .tooltip {
+        min-width: 280px;
+        max-width: calc(100vw - 40px);
+    }
+}
+
+@media (max-width: 640px) {
+    .tooltip {
+        min-width: 250px;
+        max-width: calc(100vw - 30px);
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%) translateY(-8px);
+    }
+
+    .tooltip::before {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+    }
+
+    .info-icon:hover ~ .tooltip,
+    .info-icon:focus ~ .tooltip,
+    .tooltip:hover {
+        transform: translateX(-50%) translateY(0);
     }
 }
 
