@@ -1688,3 +1688,126 @@ html[data-theme="dark"] .home-page .card {
 html[data-theme="dark"] .home-page .card-title {
     color: #2c2f33;
 }
+
+/* Messenger Table Styles - Using Root CSS Variables */
+.messenger-title {
+    color: var(--text-main);
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+    text-align: left;
+}
+
+.messenger-table-wrapper {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 30px;
+    margin: 40px 0;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.messenger-table-container {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 30px;
+    margin: 40px 0;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.messenger-table-container h3 {
+    color: var(--text-main);
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.messenger-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+/* Table Header - Using card-bottom style */
+.messenger-table thead th {
+    background: var(--bg-card-top);
+    color: var(--text-main);
+    padding: 16px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    border: 1px solid var(--border-color);
+}
+
+.messenger-table thead th:first-child {
+    border-radius: 16px 0 0 0;
+}
+
+.messenger-table thead th:last-child {
+    border-radius: 0 16px 0 0;
+}
+
+/* Table Data - Using product-card style */
+.messenger-table tbody td {
+    background: var(--bg-secondary);
+    color: var(--text-main);
+    padding: 16px 20px;
+    border: 1px solid var(--border-color);
+    font-size: 14px;
+    vertical-align: top;
+    width: 33.33%;
+}
+
+.messenger-table tbody tr:last-child td:first-child {
+    border-radius: 0 0 0 16px;
+}
+
+.messenger-table tbody tr:last-child td:last-child {
+    border-radius: 0 0 16px 0;
+}
+
+.messenger-table tbody ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.messenger-table tbody ul li {
+    margin-bottom: 8px;
+    padding-left: 0;
+    line-height: 1.4;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.messenger-table tbody ul li::before {
+    content: "• ";
+    margin-right: 0;
+    color: var(--text-gray);
+    flex-shrink: 0;
+}
+
+/* Dark Mode Specific */
+html[data-theme="dark"] .messenger-table thead th {
+    background: var(--bg-card-top);
+    color: var(--text-main);
+    border-color: var(--border-color);
+}
+
+html[data-theme="dark"] .messenger-table tbody td {
+    background: var(--bg-secondary);
+    color: var(--text-main);
+    border-color: var(--border-color);
+}
+
+html[data-theme="dark"] .messenger-table tbody ul li::before {
+    color: var(--text-gray);
+}
