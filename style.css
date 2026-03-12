@@ -1065,6 +1065,7 @@ section:last-child { border-bottom: none; }
     align-items: center;
     gap: 15px;
     padding: 15px 20px;
+    margin-bottom: 12px;
     background: var(--bg-card);
     border-radius: 14px;
     border: 1px solid rgba(0,0,0,0.1);
@@ -1182,6 +1183,8 @@ html[data-theme="dark"] .doc-card:hover {
 
 .btn-view { display: none !important; }
 
+/* FAQ Details - Works with all sections */
+section details,
 #faq details {
     background: var(--bg-card);
     border-radius: 14px;
@@ -1192,12 +1195,15 @@ html[data-theme="dark"] .doc-card:hover {
     transition: all 0.2s ease;
 }
 
+html[data-theme="dark"] section details,
 html[data-theme="dark"] #faq details {
     background: var(--bg-card);
     border: 1px solid rgba(255,255,255,0.08);
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
+/* FAQ Summary - Works with all sections */
+section summary,
 #faq summary {
     font-size: 16px;
     font-weight: 600;
@@ -1210,23 +1216,29 @@ html[data-theme="dark"] #faq details {
     color: var(--text-main);
 }
 
+section summary:hover,
 #faq summary:hover {
     background: var(--bg-secondary);
 }
 
+html[data-theme="dark"] section summary:hover,
 html[data-theme="dark"] #faq summary:hover {
     background: var(--bg-secondary);
 }
 
+section summary::-webkit-details-marker,
 #faq summary::-webkit-details-marker {
     display: none;
 }
 
+/* Arrow styling */
+section .arrow,
 #faq .arrow {
     transition: transform 0.25s ease;
     font-size: 14px;
 }
 
+section details[open] .arrow,
 #faq details[open] .arrow {
     transform: rotate(180deg);
 }
