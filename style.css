@@ -1656,26 +1656,14 @@ html[data-theme="dark"] .tooltip::before {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-    .info-icon-wrapper {
-        position: absolute;
-        top: 12px;
-        right: 12px;
-    }
-
+@media (max-width: 640px) {
     .tooltip {
         min-width: 280px;
         max-width: calc(100vw - 40px);
-    }
-}
-
-@media (max-width: 640px) {
-    .tooltip {
-        min-width: 250px;
-        max-width: calc(100vw - 30px);
         right: auto;
         left: 50%;
         transform: translateX(-50%) translateY(-8px);
+        margin-left: calc((100vw / 2 - 140px) * -1);
     }
 
     .tooltip::before {
