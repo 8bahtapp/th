@@ -3,22 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Support</title>
-
-    <script>
-        const role = localStorage.getItem('userRole');
-        const currentUrl = window.location.href;
-    
-        if (!role) {
-            window.location.href = 'https://8bahtapp.github.io/th/lc'; 
-        } 
-        else if (currentUrl.includes('/support') && role !== 'support') {
-            alert('สิทธิ์ของคุณไม่สามารถเข้าถึง');
-            window.location.href = 'https://8bahtapp.github.io/th/lc/sale';
-        }
-    </script>
-    
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <title>8Baht Tools</title>
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/favicon.png">
     <link rel="stylesheet" href="/th/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -56,14 +41,11 @@
 
             <div class="header-right">
                 <div class="toggle-container">
-                    <button class="toggle-button" id="theme-toggle-switch">
-                        <span class="toggle-circle"></span>
-                    </button>
+                  <button class="toggle-button" id="theme-toggle-switch">
+                    <span class="toggle-circle"></span>
+                  </button>
                 </div>
-
-                <div class="auth-action-wrapper">
-                    <a href="https://8baht.com/help" class="btn-ticket" target="_blank">Open Ticket</a>
-                </div>
+                <a href="https://8baht.com/help" class="btn-ticket" target="_blank">Open Ticket</a>
             </div>
         </div>
     </header>
@@ -72,426 +54,83 @@
 
     <section class="hero">
         <div class="container">
-            <h1>Support Tools</h1>
-            <div id="user-profile" class="user-profile-dropdown" style="display: none;">
-                <span id="display-email" class="user-email"></span>
-                <button id="logout-btn" class="btn-logout">ออกจากระบบ</button>
-            </div>
+            <h1>8Baht Tools</h1>
+            <iframe 
+                src="./balls-animation.html" 
+                style="width: 100%; height: 60px; border: none; margin-top: 4px; border-radius: 10px;"
+                scrolling="no"
+                title="Rolling Balls Animation">
+            </iframe>
         </div>
     </section>
 
-    <div class="product-layout">
-        <aside class="product-sidebar">
-            <a href="/th/" class="back-link">← Back</a>
-            <div class="sticky-nav">
-                <span class="nav-label">เมนู</span>
-                <a href="#ad" class="nav-item active">Adobe</a>
-                <a href="#au" class="nav-item">Autodesk</a>
-                <a href="#sk" class="nav-item">SketchUp</a>
-                <a href="#rh" class="nav-item">Rhino</a>
-                <a href="#ch" class="nav-item">Chaos</a>
-                <a href="#d5" class="nav-item">D5</a>
-                <a href="#lu" class="nav-item">Lumion</a>
-                <a href="#fo" class="nav-item">Foxit</a>
-                <a href="#pd" class="nav-item">PDFelement</a>
-                <a href="#mi" class="nav-item">Microsof</a>
-                <a href="#ot" class="nav-item">Other</a>
+    <main class="container">
+        <div class="grid-menu">
+            <a href="/th/adobe/" class="card">
+                <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/logo-adobe.png" alt="Adobe">
+                <span class="card-title">Adobe</span>
+            </a>
+            <a href="/th/autodesk/" class="card">
+                <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/logo-autodesk.png" alt="Autodesk">
+                <span class="card-title">Autodesk</span>
+            </a>
+            <a href="/th/sketchup/" class="card">
+                <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/logo-sketchup.png" alt="SketchUp">
+                <span class="card-title">SketchUp</span>
+            </a>
+            <a href="/th/rhino/" class="card">
+                <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/logo-rhino.png" alt="Rhino">
+                <span class="card-title">Rhino</span>
+            </a>
+            <a href="/th/bimbundle/" class="card">
+                <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/logo-bim.png" alt="BIM Bundle">
+                <span class="card-title">BIM Bundle</span>
+            </a>
+            <a href="/th/corona/" class="card">
+                <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/logo-corona.png" alt="Corona">
+                <span class="card-title">Corona</span>
+            </a>
+            <a href="/th/enscape/" class="card">
+                <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/logo-enscape.png" alt="Enscape">
+                <span class="card-title">Enscape</span>
+            </a>
+            <a href="/th/vray/" class="card">
+                <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/logo-vray.png" alt="V-Ray">
+                <span class="card-title">V-Ray</span>
+            </a>
+            <a href="/th/d5/" class="card">
+                <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/logo-d5.png" alt="D5">
+                <span class="card-title">D5 Render</span>
+            </a>
+            <a href="/th/lumion/" class="card">
+                <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/lumion_logo.png" alt="Lumion">
+                <span class="card-title">Lumion</span>
+            </a>
+            <a href="/th/foxit/" class="card">
+                <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/logo-foxit.png" alt="Foxit">
+                <span class="card-title">Foxit</span>
+            </a>
+            <a href="/th//pdfelement/" class="card">
+                <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/log-pdfelement.png" alt="PDFelement">
+                <span class="card-title">PDFelement</span>
+            </a>
+            <a href="/th/microsoft/" class="card">
+                <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/logo-microsoft.png" alt="Microsoft">
+                <span class="card-title">Microsoft</span>
+            </a>
+            <div class="card card-special">
+                <a href="https://sites.google.com/view/thaigstarcadtools" class="card-main-link" target="_blank">
+                    <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/logo-gstarcad.png" alt="GstarCAD">
+                    <span class="card-title"></span> 
+                </a>
+                <a href="https://cs.applicadthai.com/" class="btn-card-ticket" title="แจ้งเคส GstarCAD" target="_blank">Open Ticket</a>
             </div>
-        </aside>
-
-        <main class="product-content">
-            <section id="ad">
-                <h2 class="section-title">Adobe</h2>
-                <div class="faq-container">
-                    <details class="faq-item">
-                        <summary style="display: flex; align-items: center; gap: 10px; justify-content: flex-start;">
-                            <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/icon-adobe.png" alt="logo" style="width: 28px; height: 28px; flex-shrink: 0;">
-                            <span style="flex-grow: 0;">เปิดเคสกับ Adobe ต่างประเทศ</span>
-                            <span class="arrow" style="margin-left: auto;">▾</span>
-                        </summary>
-                        <div class="faq-content">
-                            <div class="faq-text">
-                                <p>Adobe จะไม่มีให้แจ้งเคสแบบใส่ข้อมูล แต่จะใช้แบบการทักแชทที่เว็บไซต์(ตรงมุมขวาล่าง, ภาษาอังกฤษเท่านั้น) ซึ่งจะต้องผ่าน bot ก่อนประมาณ 2-3 ชั้น<br>
-                                   ช่องทางนี้ส่วนใหญ่จะเป็นเรื่องการขอยกเลิกพวกการยืนยันสองขั้นตอน, ยกเลิกบัครเครดิต หรืออะไรที่เชื่อมโยงกับเรื่อง Personalized</p>
-                                <p> ไปที่หน้า <a class="faq-link" href="https://helpx.adobe.com/th_th/contact.html" target="_blank">แจ้งเคส</a></p>
-                            </div>
-                        </div>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary style="display: flex; align-items: center; gap: 10px; justify-content: flex-start;">
-                            <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/icon-vstecs.png" alt="logo" style="width: 28px; height: 28px; flex-shrink: 0;">
-                            <span style="flex-grow: 0;">ส่งอีเมลปรึกษากับคู่ค้าภายในประเทศ</span>
-                            <span class="arrow" style="margin-left: auto;">▾</span>
-                        </summary>
-                        <div class="faq-content">
-                            <div class="faq-text">
-                                <p>ใช้วิธีส่งอีเมลเพื่อรับการสนับสนุนหรือปรึกษาข้อมูลต่างๆ</p>
-                            </div>
-                            <button class="btn-copy-icon" data-url="vichuda@vstecs.co.th" title="คัดลอกอีเมล">
-                                <svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><rect height="13" rx="2" ry="2" width="13" x="9" y="9"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                            </button>
-                        </div>
-                    </details>
-                </div>
-            </section>
-
-            <section id="au">
-                <h2 class="section-title">Autodesk</h2>
-                <div class="faq-container">
-                    <details class="faq-item">
-                        <summary style="display: flex; align-items: center; gap: 10px; justify-content: flex-start;">
-                            <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/icon-autodesk.png" alt="logo" style="width: 28px; height: 28px; flex-shrink: 0;">
-                            <span style="flex-grow: 0;">เปิดเคสกับ Autodesk ต่างประเทศ</span>
-                            <span class="arrow" style="margin-left: auto;">▾</span>
-                        </summary>
-                        <div class="faq-content">
-                            <div class="faq-text">
-                                <p> • <a class="faq-link" href="https://www.autodesk.com/support/contact-support" target="_blank">Open Ticket </a></p>
-                            </div>
-                        </div>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary style="display: flex; align-items: center; gap: 10px; justify-content: flex-start;">
-                            <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/icon-autodesk.png" alt="logo" style="width: 28px; height: 28px; flex-shrink: 0;">
-                            <span style="flex-grow: 0;">ลิงก์สำหรับโปรดักส์ Autodesk ซื้อขาด(EOS)</span>
-                            <span class="arrow" style="margin-left: auto;">▾</span>
-                        </summary>
-                        <div class="faq-content">
-                            <div class="faq-text">
-                                <p>Autodesk ซื้อขาดสิ้นสุดการสนับสนุนแล้ว ไม่สามารถย้ายเครื่องได้ หากคอมพิวเตอร์เสียจะไม่สามารถเปิดใช่้งานใหม่ได้ ลูกค้าจะต้องเปิดเคสร้องขอกับต่างประเทศโดยตรงด้วยตัวเองเท่านั้น<br>
-                                    • คลิกที่ปุ่มคัดลอกเพื่อคัดลอกลิงก์สำหรับแจ้งเคสต่างประเทศ</p>
-                            </div>
-                            <button class="btn-copy-icon" data-url="Autodesk Contact Support&#10;https://www.autodesk.com/support/contact-support" title="คัดลอกลิงก์">
-                                <svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><rect height="13" rx="2" ry="2" width="13" x="9" y="9"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                            </button>
-                        </div>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary style="display: flex; align-items: center; gap: 10px; justify-content: flex-start;">
-                            <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/icon-mtech.png" alt="logo" style="width: 28px; height: 28px; flex-shrink: 0;">
-                            <span style="flex-grow: 0;">ส่งอีเมลปรึกษากับคู่ค้าภายในประเทศ</span>
-                            <span class="arrow" style="margin-left: auto;">▾</span>
-                        </summary>
-                        <div class="faq-content">
-                            <div class="faq-text">
-                                <p>ใช้วิธีส่งอีเมลเพื่อรับการสนับสนุนหรือปรึกษาข้อมูลต่างๆ</p>
-                            </div>
-                            <button class="btn-copy-icon" data-url="attaphon@mtechthailand.com" title="คัดลอกอีเมล">
-                                <svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><rect height="13" rx="2" ry="2" width="13" x="9" y="9"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                            </button>
-                        </div>
-                    </details>
-                </div>
-            </section>
-
-            <section id="sk">
-                <h2 class="section-title">SketchUp</h2>
-                <div class="faq-container">
-                    <details class="faq-item">
-                        <summary style="display: flex; align-items: center; gap: 10px; justify-content: flex-start;">
-                            <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/icon-tb.png" alt="logo" style="width: 28px; height: 28px; flex-shrink: 0;">
-                            <span style="flex-grow: 0;">เปิดเคสกับ Trimble SketchUp ต่างประเทศ</span>
-                            <span class="arrow" style="margin-left: auto;">▾</span>
-                        </summary>
-                        <div class="faq-content">
-                            <div class="faq-text">
-                                <p>สามารถเปิดเคสตรงต่างประเทศได้ - เนื่องจากติดเรื่อง Time Zone ต่างประเทศจะตอบกลับช่วงกลางคืน ควรเผื่อเวลาไว้</p>
-                                <p> • <a class="faq-link" href="https://help.sketchup.com/en/contact-support/technical-question/form" target="_blank">Open Ticket </a></p>
-                            </div>
-                        </div>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary style="display: flex; align-items: center; gap: 10px; justify-content: flex-start;">
-                            <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/icon-dg1.png" alt="logo" style="width: 28px; height: 28px; flex-shrink: 0;">
-                            <span style="flex-grow: 0;">เปิดเคสกับคู่ค้าภายในประเทศ</span>
-                            <span class="arrow" style="margin-left: auto;">▾</span>
-                        </summary>
-                        <div class="faq-content">
-                            <div class="faq-text">
-                                <p>ในขั้นต้นเราจะเปิดเคสไปที่คู่ค้าในประเทศก่อน เพื่อรับการสนับสนุนด้านต่างๆ</p>
-                                <p> • <a class="faq-link" href="https://forms.gle/nSMNsKubvAL1ocLz6" target="_blank">Open Ticket </a></p>
-                            </div>
-                        </div>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary style="display: flex; align-items: center; gap: 10px; justify-content: flex-start;">
-                            <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/icon-dg1.png" alt="logo" style="width: 28px; height: 28px; flex-shrink: 0;">
-                            <span style="flex-grow: 0;">ส่งอีเมลปรึกษากับคู่ค้าภายในประเทศ</span>
-                            <span class="arrow" style="margin-left: auto;">▾</span>
-                        </summary>
-                        <div class="faq-content">
-                            <div class="faq-text">
-                                <p>ใช้วิธีส่งอีเมลเพื่อรับการสนับสนุนหรือปรึกษาข้อมูลต่างๆ</p>
-                            </div>
-                            <button class="btn-copy-icon" data-url="softwareteam@digitechone.co.th" title="คัดลอกอีเมล">
-                                <svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><rect height="13" rx="2" ry="2" width="13" x="9" y="9"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                            </button>
-                        </div>
-                    </details>
-                </div>
-            </section>
-
-            <section id="rh">
-                <h2 class="section-title">Rhino</h2>
-                <div class="faq-container">
-                    <details class="faq-item">
-                        <summary style="display: flex; align-items: center; gap: 10px; justify-content: flex-start;">
-                            <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/icon-rhino.png" alt="logo" style="width: 28px; height: 28px; flex-shrink: 0;">
-                            <span style="flex-grow: 0;">ส่งอีเมลแจ้งเคสกับผู้พัฒนาซอฟต์แวร์ต่างประเทศ</span>
-                            <span class="arrow" style="margin-left: auto;">▾</span>
-                        </summary>
-                        <div class="faq-content">
-                            <div class="faq-text">
-                                <p>ใช้วิธีส่งอีเมลเพื่อรับการสนับสนุนหรือปรึกษาข้อมูลต่างๆ</p>
-                            </div>
-                            <button class="btn-copy-icon" data-url="wk.lim@mcneel.com" title="คัดลอกอีเมล">
-                                <svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><rect height="13" rx="2" ry="2" width="13" x="9" y="9"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                            </button>
-                        </div>
-                    </details>
-                </div>
-            </section>
-
-            <section id="ch">
-                <h2 class="section-title">Chaos</h2>
-                <div class="faq-container">
-                    <details class="faq-item">
-                        <summary style="display: flex; align-items: center; gap: 10px; justify-content: flex-start;">
-                            <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/icon-chaos.png" alt="logo" style="width: 28px; height: 28px; flex-shrink: 0;">
-                            <span style="flex-grow: 0;">เปิดเคสกับ Chaos ต่างประเทศ</span>
-                            <span class="arrow" style="margin-left: auto;">▾</span>
-                        </summary>
-                        <div class="faq-content">
-                            <div class="faq-text">
-                                <p>สามารถเปิดเคสตรงต่างประเทศได้ เพื่อรับการสนับสนุนด้านต่างๆ</p>
-                                <p> • <a class="faq-link" href="https://support.chaos.com/hc/en-us/requests/new" target="_blank">Open Ticket </a></p>
-                            </div>
-                        </div>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary style="display: flex; align-items: center; gap: 10px; justify-content: flex-start;">
-                            <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/icon-dg1.png" alt="logo" style="width: 28px; height: 28px; flex-shrink: 0;">
-                            <span style="flex-grow: 0;">เปิดเคสกับคู่ค้าภายในประเทศ</span>
-                            <span class="arrow" style="margin-left: auto;">▾</span>
-                        </summary>
-                        <div class="faq-content">
-                            <div class="faq-text">
-                                <p>ในขั้นต้นเราจะเปิดเคสไปที่คู่ค้าในประเทศก่อน เพื่อรับการสนับสนุนด้านต่างๆ</p>
-                                <p> • <a class="faq-link" href="https://forms.gle/nSMNsKubvAL1ocLz6" target="_blank">Open Ticket </a></p>
-                            </div>
-                        </div>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary style="display: flex; align-items: center; gap: 10px; justify-content: flex-start;">
-                            <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/icon-dg1.png" alt="logo" style="width: 28px; height: 28px; flex-shrink: 0;">
-                            <span style="flex-grow: 0;">ส่งอีเมลปรึกษากับคู่ค้าภายในประเทศ</span>
-                            <span class="arrow" style="margin-left: auto;">▾</span>
-                        </summary>
-                        <div class="faq-content">
-                            <div class="faq-text">
-                                <p>ใช้วิธีส่งอีเมลเพื่อรับการสนับสนุนหรือปรึกษาข้อมูลต่างๆ</p>
-                            </div>
-                            <button class="btn-copy-icon" data-url="softwareteam@digitechone.co.th" title="คัดลอกอีเมล">
-                                <svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><rect height="13" rx="2" ry="2" width="13" x="9" y="9"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                            </button>
-                        </div>
-                    </details>
-                </div>
-            </section>
-
-            <section id="d5">
-                <h2 class="section-title">D5</h2>
-                <div class="faq-container">
-                    <details class="faq-item">
-                        <summary style="display: flex; align-items: center; gap: 10px; justify-content: flex-start;">
-                            <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/icon-d5.png" alt="logo" style="width: 28px; height: 28px; flex-shrink: 0;">
-                            <span style="flex-grow: 0;">ส่งอีเมลแจ้งเคสกับผู้พัฒนาซอฟต์แวร์ต่างประเทศ</span>
-                            <span class="arrow" style="margin-left: auto;">▾</span>
-                        </summary>
-                        <div class="faq-content">
-                            <div class="faq-text">
-                                <p>สามารถส่งอีเมลตรงต่างประเทศได้ เพื่อรับการสนับสนุนด้านต่างๆ โดยปกติแล้วจะได้รับการตอบกลับภายใน 1-2 วัน</p>
-                            </div>
-                            <button class="btn-copy-icon" data-url="support@d5techs.com" title="คัดลอกอีเมล">
-                                <svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><rect height="13" rx="2" ry="2" width="13" x="9" y="9"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                            </button>
-                        </div>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary style="display: flex; align-items: center; gap: 10px; justify-content: flex-start;">
-                            <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/icon-tdt.png" alt="logo" style="width: 28px; height: 28px; flex-shrink: 0;">
-                            <span style="flex-grow: 0;">ส่งอีเมลปรึกษากับคู่ค้าภายในประเทศ</span>
-                            <span class="arrow" style="margin-left: auto;">▾</span>
-                        </summary>
-                        <div class="faq-content">
-                            <div class="faq-text">
-                                <p>ในขั้นต้นเราจะส่งอีเมลไปที่คู่ค้าในประเทศก่อน เพื่อรับการสนับสนุนด้านต่างๆ</p>
-                            </div>
-                            <button class="btn-copy-icon" data-url="Arnon.Rattanapisit@techdata.com" title="คัดลอกอีเมล">
-                                <svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><rect height="13" rx="2" ry="2" width="13" x="9" y="9"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                            </button>
-                        </div>
-                    </details>
-                </div>
-            </section>
-
-            <section id="lu">
-                <h2 class="section-title">Lumion</h2>
-                <div class="faq-container">
-                    <details class="faq-item">
-                        <summary style="display: flex; align-items: center; gap: 10px; justify-content: flex-start;">
-                            <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/icon-lumion.png" alt="logo" style="width: 28px; height: 28px; flex-shrink: 0;">
-                            <span style="flex-grow: 0;">เปิดเคสกับ Lumion ต่างประเทศ</span>
-                            <span class="arrow" style="margin-left: auto;">▾</span>
-                        </summary>
-                        <div class="faq-content">
-                            <div class="faq-text">
-                                <p>สามารถเปิดเคสตรงต่างประเทศได้ เพื่อรับการสนับสนุนด้านต่างๆ</p>
-                                <p> • <a class="faq-link" href="https://support.lumion.com/hc/en-us" target="_blank">Open Ticket </a></p>
-                            </div>
-                        </div>
-                    </details>
-                </div>
-            </section>
-
-            <section id="fo">
-                <h2 class="section-title">Foxit</h2>
-                <div class="faq-container">
-                    <details class="faq-item">
-                        <summary style="display: flex; align-items: center; gap: 10px; justify-content: flex-start;">
-                            <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/icon-foxitor.png" alt="logo" style="width: 28px; height: 28px; flex-shrink: 0;">
-                            <span style="flex-grow: 0;">เปิดเคสกับ Foxit ต่างประเทศ</span>
-                            <span class="arrow" style="margin-left: auto;">▾</span>
-                        </summary>
-                        <div class="faq-content">
-                            <div class="faq-text">
-                                <p>สามารถเปิดเคสตรงต่างประเทศได้ เพื่อรับการสนับสนุนด้านต่างๆ</p>
-                                <p> • <a class="faq-link" href="https://kb.foxit.com/s/submit-a-case" target="_blank">Open Ticket </a></p>
-                            </div>
-                        </div>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary style="display: flex; align-items: center; gap: 10px; justify-content: flex-start;">
-                            <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/icon-ict.png" alt="logo" style="width: 28px; height: 28px; flex-shrink: 0;">
-                            <span style="flex-grow: 0;">เปิดเคสกับคู่ค้าภายในประเทศ</span>
-                            <span class="arrow" style="margin-left: auto;">▾</span>
-                        </summary>
-                        <div class="faq-content">
-                            <div class="faq-text">
-                                <p>สามารถแจ้งเคสผ่านทาง Line OA ของคู่ค้าเพื่อรับการสนับสนุน</p>
-                                <p> • <a class="faq-link" href="https://line.me/R/ti/p/@585wejbl" target="_blank">Open Line OA </a></p>
-                            </div>
-                        </div>
-                    </details>
-                </div>
-            </section>
-
-            <section id="pd">
-                <h2 class="section-title">PDFelement</h2>
-                <div class="faq-container">
-                    <details class="faq-item">
-                        <summary style="display: flex; align-items: center; gap: 10px; justify-content: flex-start;">
-                            <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/icon-pdfelement.png" alt="logo" style="width: 28px; height: 28px; flex-shrink: 0;">
-                            <span style="flex-grow: 0;">เปิดเคสกับ Wondershare PDFelement ต่างประเทศ</span>
-                            <span class="arrow" style="margin-left: auto;">▾</span>
-                        </summary>
-                        <div class="faq-content">
-                            <div class="faq-text">
-                                <p>สามารถเปิดเคสตรงต่างประเทศได้ เพื่อรับการสนับสนุนด้านต่างๆ</p>
-                                <p> • <a class="faq-link" href="https://support.wondershare.com/contact/channel.html" target="_blank">Open Ticket </a></p>
-                            </div>
-                        </div>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary style="display: flex; align-items: center; gap: 10px; justify-content: flex-start;">
-                            <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/icon-app1009.png" alt="logo" style="width: 28px; height: 28px; flex-shrink: 0;">
-                            <span style="flex-grow: 0;">ส่งอีเมลปรึกษากับคู่ค้าภายในประเทศ</span>
-                            <span class="arrow" style="margin-left: auto;">▾</span>
-                        </summary>
-                        <div class="faq-content">
-                            <div class="faq-text">
-                                <p>ใช้วิธีส่งอีเมลเพื่อรับการสนับสนุนหรือปรึกษาข้อมูลต่างๆ</p>
-                            </div>
-                            <button class="btn-copy-icon" data-url="supportdept@app1009.com " title="คัดลอกอีเมล">
-                                <svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><rect height="13" rx="2" ry="2" width="13" x="9" y="9"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                            </button>
-                        </div>
-                    </details>
-                </div>
-            </section>
-
-            <section id="mi">
-                <h2 class="section-title">Microsoft</h2>
-                <div class="faq-container">
-                    <details class="faq-item">
-                        <summary style="display: flex; align-items: center; gap: 10px; justify-content: flex-start;">
-                            <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/icon-microsoft.png" alt="logo" style="width: 28px; height: 28px; flex-shrink: 0;">
-                            <span style="flex-grow: 0;">เปิดเคสกับ Microsoft ต่างประเทศ</span>
-                            <span class="arrow" style="margin-left: auto;">▾</span>
-                        </summary>
-                        <div class="faq-content">
-                            <div class="faq-text">
-                                <p>จะต้องเข้าสู่ระบบด้วยบัญชี Microsoft ของลูกค้าเพื่อรับการสนับสนุน</p>
-                                <p> • <a class="faq-link" href="https://serviceshub.microsoft.com/home" target="_blank">Open Ticket </a></p>
-                            </div>
-                        </div>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary style="display: flex; align-items: center; gap: 10px; justify-content: flex-start;">
-                            <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/icon-microsoft.png" alt="logo" style="width: 28px; height: 28px; flex-shrink: 0;">
-                            <span style="flex-grow: 0;">ส่งอีเมลปรึกษากับคู่ค้าภายในประเทศ</span>
-                            <span class="arrow" style="margin-left: auto;">▾</span>
-                        </summary>
-                        <div class="faq-content">
-                            <div class="faq-text">
-                                <p>สั่งซื้อกับ Ingram Micro </p>
-                            </div>
-                            <button class="btn-copy-icon" data-url="th-mscsp@ingrammicro.com" title="คัดลอกอีเมล">
-                                <svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><rect height="13" rx="2" ry="2" width="13" x="9" y="9"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                            </button>
-                        </div>
-                        <div class="faq-content">
-                            <div class="faq-text">
-                                <p>สั่งซื้อกับ VST ECS </p>
-                            </div>
-                            <button class="btn-copy-icon" data-url="MSCSP@vstecs.co.th" title="คัดลอกอีเมล">
-                                <svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><rect height="13" rx="2" ry="2" width="13" x="9" y="9"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                            </button>
-                        </div>
-                    </details>
-                </div>
-            </section>
-
-            <section id="ot">
-                <h2 class="section-title">Other</h2>
-                <div class="faq-container">
-                    <details class="faq-item">
-                        <summary style="display: flex; align-items: center; gap: 10px; justify-content: flex-start;">
-                            <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/favicon.png" alt="logo" style="width: 28px; height: 28px; flex-shrink: 0;">
-                            <span style="flex-grow: 0;">โปรดักส์อื่นๆ</span>
-                            <span class="arrow" style="margin-left: auto;">▾</span>
-                        </summary>
-                        <div class="faq-content">
-                            <div class="faq-text">
-                                <p>สำหรับโปรดักส์อื่นๆ ต้องดูว่าสั่งซื้อกับคู่ค้าในประเทศ หรือสั่งซื้อต่างประเทศ</p>
-                            </div>
-                        </div>
-                    </details>
-                </div>
-            </section>
-        </main>
-    </div>
+            <a href="/th/other/" class="card">
+                <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/logo-other.png" alt="Other">
+                <span class="card-title">อื่นๆ</span>
+            </a>
+        </div>
+    </main>
 
     <div id="copy-basket-ui" class="basket-container" style="display: none;">
         <div class="basket-card">
@@ -501,13 +140,9 @@
                 </div>
                 <div style="display: flex; align-items: center; gap: 10px;">
                     <button class="btn-clear" onclick="clearBasket()">ล้างทั้งหมด</button>
-        
-                    <button class="btn-minimize" onclick="toggleBasketUI(false)">
-                        ▾
-                    </button>
+                    <button class="btn-minimize" onclick="toggleBasketUI(false)" style="background:none; border:none; cursor:pointer; color:var(--text-gray); font-size:18px;">▼</button>
                 </div>
             </div>
-
             <div id="preview-list" class="basket-items"></div>
             <div class="basket-footer">
                 <button onclick="copyAllItems()" class="btn-copy-all">คัดลอกทั้งหมด</button>
@@ -520,7 +155,7 @@
         <img src="https://raw.githubusercontent.com/8bahtapp/web-images/refs/heads/main/favicon.png" alt="Basket">
     </div>
 
-    <div id="copy-toast" class="toast-hidden">คัดลอกสำเร็จ!</div>
+    <div id="copy-toast" class="toast-hidden">คัดลอกสำเร็จ</div>
 
     <footer class="main-footer">
         <div class="footer-links">
@@ -531,8 +166,8 @@
         <p>Copyright © 2026 8Baht Support. All rights reserved.</p>
     </footer>
 
-    <script src="../../theme-manager.js"></script>
-    <script src="../../script.js"></script>
+    <script src="theme-manager.js"></script>
+    <script src="script.js"></script>
 
-</body>
-</html>
+        </body>
+    </html>
